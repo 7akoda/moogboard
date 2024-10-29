@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import boomboardImage from '../images/boomboard.png';
+import Row from "../components/row"
+import holdsArray from "~/data/holdArrays";
 export const meta: MetaFunction = () => {
   return [
     { title: "New Remix App" },
@@ -9,11 +10,11 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-   <div>
-    <div style = {{width: 652, position: "absolute", backgroundColor: "#56666B"}}>
-    <img style={{ height: 1000 }} src={boomboardImage} alt="Boomboard"/>
-    </div>
-    <div style={{position: "absolute", height: 1000, width: 652, paddingLeft: 65}}></div>
+   <div className="bg-gray-400">
+    {Array.from({ length: 18 }).map((_, i) => (
+  <Row key={i} holdArray={holdsArray[17 - i]} />
+))}
+  
     </div>
   );
 }
