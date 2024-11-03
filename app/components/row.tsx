@@ -7,7 +7,7 @@ interface RowProps {
 
 const Row: React.FC<RowProps> = ({holdArray}) => {
     return (
-        <div className="flex flex-row justify-center items-center space-x-5">
+        <div className="flex flex-row justify-center items-center">
        {holdArray.map((holdId, index) => (
         <Hold holdId={holdId} key={index} />
        ))}

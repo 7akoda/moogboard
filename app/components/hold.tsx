@@ -4,7 +4,9 @@ interface HoldProps {
   
   const Hold: React.FC<HoldProps> = ({ holdId }) => {
    return(
-    <img className="w-[5%]" src = {holdId}></img>
+    
+    <img className="" src = {holdId} alt="hold"></img>
+    
    )
   };
   
