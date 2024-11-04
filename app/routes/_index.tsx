@@ -1,6 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import Row from "../components/row"
-import holdsArray from "~/data/holdArrays";
+import Row18 from "../components/row18"
 export const meta: MetaFunction = () => {
   return [
     { title: "MoogBoard" },
@@ -10,11 +9,11 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-   <div className="">
-    
-    {Array.from({ length: 18 }).map((_, i) => (
-  <Row key={i} holdArray={holdsArray[17 - i]} />
-))}
+   <div className="bg-indigo-400 justify-evenly">
+   
+ 
+  <Row18/>
+
     </div>
   );
 }
