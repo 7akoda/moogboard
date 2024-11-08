@@ -2,7 +2,7 @@ import * as React from "react";
 
 const Row18 = (props) => (
 <>
-<svg className=" w-[100%]">
+<svg className="w-[100%]">
   <svg
     xmlns="http://www.w3.org/2000/svg"
    viewBox="-2.67425 -11.8885 237.5 17.57"
