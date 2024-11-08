@@ -1,11 +1,7 @@
-import Row18 from "./icons/Board/row18"
+import Row18 from "./icons/Board/row18";
 
 const Row = ({}) => {
-    return (
-        <div className="flex" >
-        <Row18></Row18>
-        </div>
-    );
+  return <Row18></Row18>;
 };
 
-export default Row
+export default Row;
