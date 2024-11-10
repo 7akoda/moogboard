@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.svg{
-    width: 100%;
+svg {
+  overflow: visible;
 }

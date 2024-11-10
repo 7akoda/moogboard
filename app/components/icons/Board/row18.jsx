@@ -1,4 +1,5 @@
 import * as React from "react";
+import woodgrain from "../../../images/woodgrain.svg";
 
 const Row18 = (props) => (
   <>

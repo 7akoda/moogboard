@@ -9,6 +9,7 @@ import Row13 from "../components/row13";
 import Row12 from "../components/row12";
 import Row11 from "../components/row11";
 import Row10 from "../components/row10";
+import Row9 from "../components/row9";
 
 export const meta: MetaFunction = () => {
   return [
@@ -19,7 +20,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className="px-[5vw] ">
+    <div className="px-[5vw]">
       <Row18></Row18>
       <Row17></Row17>
       <Row16></Row16>
@@ -29,6 +30,7 @@ export default function Index() {
       <Row12></Row12>
       <Row11></Row11>
       <Row10></Row10>
+      <Row9></Row9>
     </div>
   );
 }
