@@ -3,7 +3,7 @@ import woodgrain from "../../../images/woodgrain.svg";
 
 const Row18 = (props) => (
   <>
-    <svg className="w-[100%]">
+    <svg className="w-[30%] h-[70px]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="-2.67425 -11.8885 242.5 24.57"
