@@ -28,25 +28,30 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <div className=" flex flex-col flex-wrap items-center justify-center">
-      <Row18></Row18>
-      <Row17></Row17>
-      <Row16></Row16>
-      <Row15></Row15>
-      <Row14></Row14>
-      <Row13></Row13>
-      <Row12></Row12>
-      <Row11></Row11>
-      <Row10></Row10>
-      <Row9></Row9>
-      <Row8></Row8>
-      <Row7></Row7>
-      <Row6></Row6>
-      <Row5></Row5>
-      <Row4></Row4>
-      <Row3></Row3>
-      <Row2></Row2>
-      <Row1></Row1>
-    </div>
+    <>
+      <div className="flex flex-row items-start">
+        <div className="flex basis-full flex-col  items-center max-h-[560px] min-w-[806px]">
+          <Row18></Row18>
+          <Row17></Row17>
+          <Row16></Row16>
+          <Row15></Row15>
+          <Row14></Row14>
+          <Row13></Row13>
+          <Row12></Row12>
+          <Row11></Row11>
+          <Row10></Row10>
+          <Row9></Row9>
+          <Row8></Row8>
+          <Row7></Row7>
+          <Row6></Row6>
+          <Row5></Row5>
+          <Row4></Row4>
+          <Row3></Row3>
+          <Row2></Row2>
+          <Row1></Row1>
+        </div>
+        <div className="flex basis-1/2 flex-col items-start">moog board</div>
+      </div>
+    </>
   );
 }

@@ -3,7 +3,7 @@ import * as React from "react";
 const Row11 = (props) => {
   return (
     <>
-      <svg className="w-[30%] h-[70px]">
+      <svg>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 116.3 242.5 24.57"

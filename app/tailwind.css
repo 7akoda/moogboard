@@ -9,7 +9,9 @@ body {
 }
 
 svg {
-  display: flex;
-  flex-direction: row;
-  overflow: visible;
+  width: 40%;
+  height: auto;
+  max-height: 4vh;
+  overflow-x: visible;
+  overflow-y: auto;
 }
