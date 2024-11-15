@@ -5,13 +5,31 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
+
+  background: hsla(187, 54%, 27%, 1);
+  background: linear-gradient(
+    90deg,
+    hsla(187, 54%, 27%, 1) 0%,
+    hsla(0, 0%, 96%, 1) 100%
+  );
+  background: -moz-linear-gradient(
+    90deg,
+    hsla(187, 54%, 27%, 1) 0%,
+    hsla(0, 0%, 96%, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    hsla(187, 54%, 27%, 1) 0%,
+    hsla(0, 0%, 96%, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1F6069", endColorstr="#F6F6F6", GradientType=1);
 }
 
 svg {
-  width: 40%;
+  width: 100%;
   height: auto;
-  max-height: 4vh;
+  max-height: 6vh;
   overflow-x: visible;
   overflow-y: auto;
+  z-index: 10;
 }

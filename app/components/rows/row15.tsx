@@ -1,4 +1,4 @@
-import Row15 from "./icons/Board/row15";
+import Row15 from "../icons/Board/row15";
 
 const Row = ({}) => {
   return <Row15></Row15>;
