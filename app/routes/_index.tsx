@@ -23,7 +23,7 @@ import Mooglogo from "../components/icons/Board/logos/moogboardlogo";
 export const meta: MetaFunction = () => {
   return [
     { title: "MoogBoard" },
-    { name: "description", content: "Welcome to Remix!" },
+    { name: "description", content: "Welcome to Moogboard!" },
   ];
 };
 
