@@ -32,5 +32,5 @@ svg {
   max-height: 6vh;
   overflow-x: visible;
   overflow-y: auto;
-  z-index: 10;
+  z-index: 8;
 }
