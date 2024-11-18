@@ -16,7 +16,7 @@ const Row18 = () => {
     synth?.triggerAttack("C2", "+1.5");
     synth?.triggerAttack("C1", "+2");
   };
-  //fake github commit
+
   return (
     <>
       <svg>
