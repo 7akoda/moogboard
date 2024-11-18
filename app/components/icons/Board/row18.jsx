@@ -11,9 +11,12 @@ const Row18 = () => {
       const synth1 = new Tone.AMSynth().toDestination();
       setSynth(synth1);
     }
-    synth?.triggerAttackRelease("a2", "1n");
+    synth?.triggerAttack("C4", "+0.5");
+    synth?.triggerAttack("C3", "+1");
+    synth?.triggerAttack("C2", "+1.5");
+    synth?.triggerAttack("C1", "+2");
   };
-
+  //fake github commit
   return (
     <>
       <svg>
