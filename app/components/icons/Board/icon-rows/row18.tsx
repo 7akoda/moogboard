@@ -1,29 +1,31 @@
-import woodgrain from "../../../images/woodgrain.svg";
-import React, { useState } from "react";
-import * as Tone from "tone";
+interface RowProps {
+  handleBlackClick: (
+    event: React.MouseEvent<SVGSVGElement, MouseEvent>
+  ) => Promise<void>;
+  selected: boolean;
+  setSelected: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
-const Row18 = () => {
-  const [synth, setSynth] = useState(null);
-
-  const handleBlackClick = async () => {
-    if (!synth) {
-      await Tone.start();
-      const synth1 = new Tone.AMSynth().toDestination();
-      setSynth(synth1);
-    }
-    synth?.triggerAttack("C4", "+0.5");
-    synth?.triggerAttack("C3", "+1");
-    synth?.triggerAttack("C2", "+1.5");
-    synth?.triggerAttack("C1", "+2");
-  };
-
+const Row18: React.FC<RowProps> = ({
+  handleBlackClick,
+  selected,
+  setSelected,
+}) => {
   return (
     <>
       <svg>
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
+          onClick={() => {
+            handleBlackClick;
+            setSelected(!selected);
+          }}
         >
           <path
             fill="#313638"
@@ -32,8 +34,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -42,8 +50,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#313638"
@@ -52,8 +66,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8e9eb"
@@ -62,8 +82,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -72,8 +98,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#ffe57f"
@@ -82,8 +114,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -92,8 +130,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#313638"
@@ -102,8 +146,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8e9eb"
@@ -112,8 +162,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -122,8 +178,14 @@ const Row18 = () => {
         </svg>
 
         <svg
+          className={
+            selected
+              ? "cursor-pointer animate-pulse "
+              : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+          }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
+          onClick={handleBlackClick}
         >
           <path
             fill="#ffe57f"

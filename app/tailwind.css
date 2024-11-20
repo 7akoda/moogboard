@@ -27,9 +27,8 @@ body {
 }
 
 svg {
-  width: 100%;
+  width: 50%;
   height: auto;
-  max-height: 6vh;
   overflow-x: visible;
   overflow-y: auto;
   z-index: 8;
