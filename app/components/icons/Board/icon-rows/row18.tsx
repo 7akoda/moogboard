@@ -1,20 +1,11 @@
-interface RowProps {
-  handleBlackClick: (
-    event: React.MouseEvent<SVGSVGElement, MouseEvent>
-  ) => Promise<void>;
-  selected: boolean;
-  setSelected: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { useState } from "react";
 
-const Row18: React.FC<RowProps> = ({
-  handleBlackClick,
-  selected,
-  setSelected,
-}) => {
+const Row18 = ({ selected }) => {
   return (
     <>
       <svg>
         <svg
+          key={1}
           className={
             selected
               ? "cursor-pointer animate-pulse "
@@ -22,10 +13,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={() => {
-            handleBlackClick;
-            setSelected(!selected);
-          }}
         >
           <path
             fill="#313638"
@@ -41,7 +28,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -57,7 +43,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#313638"
@@ -73,7 +58,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8e9eb"
@@ -89,7 +73,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -105,7 +88,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#ffe57f"
@@ -121,7 +103,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -137,7 +118,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#313638"
@@ -153,7 +133,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8e9eb"
@@ -169,7 +148,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#e8ceb8"
@@ -185,7 +163,6 @@ const Row18: React.FC<RowProps> = ({
           }
           xmlns="http://www.w3.org/2000/svg"
           viewBox="-2.67425 -11.8885 242.5 24.57"
-          onClick={handleBlackClick}
         >
           <path
             fill="#ffe57f"

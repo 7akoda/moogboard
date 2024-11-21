@@ -21,32 +21,22 @@ import React, { useState } from "react";
 import * as Tone from "tone";
 
 const Board = () => {
-  const [synth, setSynth] = useState<Tone.AMSynth | null>(null);
-  const [selected, setSelected] = useState<boolean>(false);
-  const handleBlackClick = async (
-    event: React.MouseEvent<SVGSVGElement, MouseEvent>
-  ) => {
-    if (selected) {
-      console.log("hold selected!");
-    }
-    //     if (!synth) {
-    //       await Tone.start();
-    //       const newSynth = new Tone.AMSynth().toDestination();
-    //       setSynth(newSynth);
-    //     }
-    //     synth?.triggerAttack("C4", "+0.5");
-    //     synth?.triggerAttack("C3", "+1");
-    //     synth?.triggerAttack("C2", "+1.5");
-    //     synth?.triggerAttack("C1", "+2");
-  };
+  //     const [synth, setSynth] = useState<Tone.AMSynth | null>(null);
+  //     const handleBlackClick = async (
+  //     if (!synth) {
+  //       await Tone.start();
+  //       const newSynth = new Tone.AMSynth().toDestination();
+  //       setSynth(newSynth);
+  //     }
+  //     synth?.triggerAttack("C4", "+0.5");
+  //     synth?.triggerAttack("C3", "+1");
+  //     synth?.triggerAttack("C2", "+1.5");
+  //     synth?.triggerAttack("C1", "+2");
+  //     };
 
   return (
     <>
-      <Row18
-        selected={selected}
-        setSelected={setSelected}
-        handleBlackClick={handleBlackClick}
-      ></Row18>
+      <Row18></Row18>
       <Row17></Row17>
       <Row16></Row16>
       <Row15></Row15>
