@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-const Row18 = ({ selected }) => {
+const Row18 = ({}) => {
   return (
     <>
       <svg>
         <svg
-          key={1}
           className={
             selected
               ? "cursor-pointer animate-pulse "

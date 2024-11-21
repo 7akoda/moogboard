@@ -18,22 +18,8 @@ import Row2 from "../components/icons/Board/icon-rows/row2";
 import Row1 from "../components/icons/Board/icon-rows/row1";
 
 import React, { useState } from "react";
-import * as Tone from "tone";
 
 const Board = () => {
-  //     const [synth, setSynth] = useState<Tone.AMSynth | null>(null);
-  //     const handleBlackClick = async (
-  //     if (!synth) {
-  //       await Tone.start();
-  //       const newSynth = new Tone.AMSynth().toDestination();
-  //       setSynth(newSynth);
-  //     }
-  //     synth?.triggerAttack("C4", "+0.5");
-  //     synth?.triggerAttack("C3", "+1");
-  //     synth?.triggerAttack("C2", "+1.5");
-  //     synth?.triggerAttack("C1", "+2");
-  //     };
-
   return (
     <>
       <Row18></Row18>
