@@ -16,7 +16,7 @@ const Hold: React.FC<HoldProps> = ({ fill, d }) => {
         onClick={handleClick}
         className={
           selected
-            ? "cursor-pointer animate-pulse "
+            ? "cursor-pointer animate-pulse stroke-red-500"
             : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
         }
         xmlns="http://www.w3.org/2000/svg"
