@@ -1,14 +1,25 @@
+import React, { useState } from "react";
 interface HoldProps {
   fill: string;
   d: string;
 }
 
 const Hold: React.FC<HoldProps> = ({ fill, d }) => {
+  const [selected, setSelected] = useState<boolean>(false);
+  const handleClick: React.MouseEventHandler<SVGSVGElement> = () => {
+    setSelected(!selected);
+  };
+
   return (
     <>
       <svg
+        onClick={handleClick}
+        className={
+          selected
+            ? "cursor-pointer animate-pulse "
+            : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
+        }
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="-2.67425 -11.8885 242.5 24.57"
       >
         <path fill={fill} d={d} />
       </svg>
