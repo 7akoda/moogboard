@@ -1,11 +1,24 @@
+import React, { useState } from "react";
+import * as Tone from "tone";
 import Hold from "./hold";
 import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
-import * as Tone from "tone";
+import Line from "./line";
+
 const Board = () => {
+  const [position, setPosition] = useState(0);
+
+  const handleClick = () => {
+    const newPosition = position + 10;
+    setPosition(newPosition);
+  };
   return (
     <>
+      <button className="" onClick={handleClick}>
+        move
+      </button>
+      <Line style={{ transform: `translateY(${position}px)` }}></Line>
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
         <Hold
           SynthProp={Tone.FMSynth}
