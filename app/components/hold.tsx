@@ -5,16 +5,30 @@ interface HoldProps {
   fill: string;
   d: string;
   note: Tone.Unit.Frequency;
-  SynthProp: typeof Tone.Synth;
+  SynthProp:
+    | typeof Tone.Synth
+    | typeof Tone.FMSynth
+    | typeof Tone.AMSynth
+    | typeof Tone.PluckSynth;
+  reverbValue: number;
 }
 
-const Hold: React.FC<HoldProps> = ({ fill, d, note, SynthProp }) => {
+const Hold: React.FC<HoldProps> = ({
+  fill,
+  d,
+  note,
+  SynthProp,
+  reverbValue,
+}) => {
   const [selected, setSelected] = useState<boolean>(false);
 
-  const handleClick: React.MouseEventHandler<SVGSVGElement> = () => {
+  const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
+    const dist = new Tone.Reverb(reverbValue).toDestination();
     const synth = new SynthProp().toDestination();
 
-    !selected ? synth.triggerAttackRelease(note, "4n") : console.log("pfft");
+    !selected
+      ? synth.triggerAttackRelease(note, "8n").connect(dist)
+      : console.log("pfft");
     setSelected(!selected);
   };
 
