@@ -33,3 +33,18 @@ svg {
   overflow-y: auto;
   z-index: 8;
 }
+
+.move-up {
+  position: absolute;
+  max-width: 30vw;
+  animation: moveUp linear 5s;
+}
+
+@keyframes moveUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100vh);
+  }
+}
