@@ -2,33 +2,36 @@ import React, { useState } from "react";
 
 const Line = () => {
   const [animate, setAnimate] = useState(false);
+
   const handleClick = () => {
     setAnimate(false);
     setTimeout(() => setAnimate(true), 0);
+    setTimeout(() => setAnimate(false), 5000);
   };
+
   return (
-    <>
-      <button className="absolute cursor-pointer left-40" onClick={handleClick}>
+    <div className="flex flex-col justify-end items-center absolute w-[50%] h-screen overflow-hidden">
+      <button className=" cursor-pointer z-10 absolute" onClick={handleClick}>
         move up
       </button>
       <svg
-        className={animate ? "move-up" : "absolute max-w-[30vw]"}
+        viewBox="0 0 900 10"
+        className={animate ? "move-up" : "absolute h-auto w-[60%] opacity-0"}
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 -65.6 240 20"
       >
         <g>
           <g>
             <rect
-              y="139.474"
               fill="#d97706"
               opacity={0.5}
-              width="800"
+              width="900"
               height="3.5"
+              y="6.5"
             />
           </g>
         </g>
       </svg>
-    </>
+    </div>
   );
 };
 

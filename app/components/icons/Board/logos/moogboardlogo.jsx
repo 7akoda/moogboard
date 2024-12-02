@@ -5,7 +5,7 @@ const Mooglogo = (props) => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 278.67 296.25"
-      className="flex flex-col justify-center max-h-[60vh] sticky top-56 center z-0"
+      className="flex flex-col justify-center max-h-[60vh] fixed center z-0"
     >
       <defs>
         <style>{`

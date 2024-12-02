@@ -35,8 +35,9 @@ svg {
 }
 
 .move-up {
+  width: 60%;
+  height: auto;
   position: absolute;
-  max-width: 30vw;
   animation: moveUp linear 5s;
 }
 

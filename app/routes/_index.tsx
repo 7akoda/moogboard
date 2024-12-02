@@ -13,8 +13,9 @@ export default function Index() {
   return (
     <>
       <div className="flex flex-col items-center">
-        <Mooglogo></Mooglogo>
-        <div className="flex flex-col w-full h-screen justify-center items-center"></div>
+        <div className="flex flex-col w-full h-screen justify-center items-center">
+          <Mooglogo></Mooglogo>
+        </div>
         <div className="flex flex-col w-full h-screen justify-center items-center">
           <Board></Board>
           <Line></Line>
