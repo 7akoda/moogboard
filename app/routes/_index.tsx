@@ -18,6 +18,7 @@ export default function Index() {
         </div>
         <div className="flex flex-col w-full h-screen justify-center items-center">
           <Board></Board>
+
           <Line></Line>
         </div>
       </div>

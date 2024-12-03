@@ -10,25 +10,17 @@ const Line = () => {
   };
 
   return (
-    <div className="flex flex-col justify-end items-center absolute w-[50%] h-screen overflow-hidden">
+    <div className=" absolute flex flex-col justify-end items-center w-full h-screen">
       <button className=" cursor-pointer z-10 absolute" onClick={handleClick}>
         move up
       </button>
       <svg
-        viewBox="0 0 900 10"
-        className={animate ? "move-up" : "absolute h-auto w-[60%] opacity-0"}
+        viewBox="0 0 242.5 10"
+        className={animate ? "move-up" : "absolute h-auto w-[20%] opacity-0 "}
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
-          <g>
-            <rect
-              fill="#d97706"
-              opacity={0.5}
-              width="900"
-              height="3.5"
-              y="6.5"
-            />
-          </g>
+          <rect fill="#d97706" width="900" height="1.5" y="6.5" />
         </g>
       </svg>
     </div>
