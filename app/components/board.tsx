@@ -4,10 +4,10 @@ import Hold from "./hold";
 import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
-
+import Line from "../components/line";
 const Board = () => {
   return (
-    <>
+    <div className="flex flex-col ">
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
         <Hold
           SynthProp={Tone.FMSynth}
@@ -781,7 +781,7 @@ const Board = () => {
           d="M228.9 272.164c4.684-1.007 6.103 2.379 4.523 3.96-1.812 1.807-3.733 1.771-5.452-.452-.769-1.104-1.139-2.997.929-3.508"
         />
       </Row>
-      <Specialrow>
+      <Specialrow viewBox="0 0 242.5 24.57">
         <Specialhold
           viewBox="0.5 281 242.5 24.57"
           fill="#e8e9eb"
@@ -838,7 +838,7 @@ const Board = () => {
           d="M235.297 288.4c.199-.354.541-.429 1.027-.204 1.948.883 4.91 3.268 7.277 5.185.322.263.215.395.043.78a7.92 7.92 0 0 1-4.07 3.828c-.429.184-.647.207-.86.001-4.423-4.445-5.656-5.664-3.417-9.59"
         />
       </Specialrow>
-      <Specialrow>
+      <Specialrow viewBox="0 0 242.5 24.57">
         <Specialhold
           viewBox="-0.7 299.3 242.5 24.57"
           fill="#313638"
@@ -895,7 +895,8 @@ const Board = () => {
           d="M233.724 311.008c-.221-.296.037-.429.337-.469 1.255-.167 2.559-.715 3.304-1.428.354-.324.489-.269.785-.169 1.142.41 2.122.378 2.946.466.959.106.359.571.42.946.166 1.093-.325 2.188-2.357 3.472-1.93 1.192-4.431-1.519-5.435-2.818"
         />
       </Specialrow>
-    </>
+      <Line></Line>
+    </div>
   );
 };
 export default Board;

@@ -10,8 +10,11 @@ const Line = () => {
   };
 
   return (
-    <div className=" absolute flex flex-col justify-end items-center w-full h-screen">
-      <button className=" cursor-pointer z-10 absolute" onClick={handleClick}>
+    <div className=" flex flex-col justify-end items-center ">
+      <button
+        className=" cursor-pointer z-10 absolute h-auto"
+        onClick={handleClick}
+      >
         move up
       </button>
       <svg
