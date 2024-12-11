@@ -3,16 +3,17 @@ import * as React from "react";
 const Mooglogo = () => {
   if (typeof document !== "undefined") {
     const svgElement = document.querySelector("svg");
-
+    window.onbeforeunload = function () {
+      window.scrollTo(0, 0);
+    };
     const updateScale = () => {
       const scrollHeight = document.body.scrollHeight - window.innerHeight;
       const scrollPercent = window.scrollY / scrollHeight;
       const clampedPercent = Math.min(Math.max(scrollPercent, 0), 1);
       svgElement.style.transform = `scale(${1 - clampedPercent * 0.3})`;
     };
-    window.addEventListener("load", updateScale);
+
     window.addEventListener("scroll", updateScale);
-    updateScale();
   }
 
   return (

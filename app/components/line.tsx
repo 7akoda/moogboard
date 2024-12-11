@@ -18,12 +18,14 @@ const Line = () => {
         move up
       </button>
       <svg
-        viewBox="0 0 242.5 10"
-        className={animate ? "move-up" : "absolute h-auto w-[20%] opacity-0 "}
+        viewBox="0 0 242.5 1.2"
+        className={
+          animate ? "lineMoving" : "absolute h-auto w-[20%] opacity-0 "
+        }
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
-          <rect fill="#d97706" width="900" height="1.5" y="6.5" />
+          <rect fill="#d97706" width="900" height="0.5" y="1" />
         </g>
       </svg>
     </div>

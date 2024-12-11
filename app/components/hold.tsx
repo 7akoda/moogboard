@@ -23,24 +23,57 @@ const Hold: React.FC<HoldProps> = ({
   const [selected, setSelected] = useState<boolean>(false);
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
-    const dist = new Tone.Reverb(reverbValue).toDestination();
-    const synth = new SynthProp().toDestination();
-
-    !selected
-      ? synth.triggerAttackRelease(note, "8n").connect(dist)
-      : console.log("pfft");
     setSelected(!selected);
   };
+
+  if (typeof document !== "undefined") {
+    const checkForElements = setInterval(() => {
+      const holds = document.querySelectorAll(".svgHoldSelected");
+      const line = document.querySelector(".lineMoving");
+
+      if (holds.length > 0 && line) {
+        clearInterval(checkForElements); // Stop checking
+        startCollisionDetection();
+      }
+    }, 100);
+
+    const checkCollision = () => {
+      const holds = document.querySelectorAll(".svgHoldSelected");
+      const line = document.querySelector(".lineMoving");
+
+      if (!line || holds.length === 0) {
+        return;
+      }
+
+      const lineRect = line.getBoundingClientRect();
+
+      holds.forEach((svg, index) => {
+        const svgRect = svg.getBoundingClientRect();
+
+        if (lineRect.top < svgRect.bottom && lineRect.bottom > svgRect.top) {
+          console.log("collided");
+          const dist = new Tone.Reverb(reverbValue).toDestination();
+          const synth = new SynthProp().toDestination();
+          synth.triggerAttackRelease(note, "8n").connect(dist);
+        }
+      });
+    };
+
+    const startCollisionDetection = () => {
+      console.log("Starting collision detection...");
+      setInterval(() => {
+        checkCollision();
+      }, 0.0000000000000001);
+    };
+  }
 
   return (
     <>
       <svg
         onClick={handleClick}
-        className={
-          selected
-            ? "cursor-pointer animate-pulse stroke-amber-600"
-            : "cursor-pointer hover:opacity-40 transition-opacity duration-150 ease-in"
-        }
+        className={`svgHoldNotSelected ${
+          selected ? "svgHoldSelected" : "svgHoldNotSelected"
+        }`}
         xmlns="http://www.w3.org/2000/svg"
       >
         <path fill={fill} d={d} />
