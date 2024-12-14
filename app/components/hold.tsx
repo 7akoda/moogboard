@@ -21,6 +21,7 @@ const Hold: React.FC<HoldProps> = ({
   reverbValue,
 }) => {
   const [selected, setSelected] = useState<boolean>(false);
+  const [queueSound, setQueueSound] = useState<boolean>(true);
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
     setSelected(!selected);
@@ -50,20 +51,25 @@ const Hold: React.FC<HoldProps> = ({
       holds.forEach((svg, index) => {
         const svgRect = svg.getBoundingClientRect();
 
-        if (lineRect.top < svgRect.bottom && lineRect.bottom > svgRect.top) {
+        if (lineRect.top < svgRect.bottom) {
           console.log("collided");
-          const dist = new Tone.Reverb(reverbValue).toDestination();
-          const synth = new SynthProp().toDestination();
-          synth.triggerAttackRelease(note, "8n").connect(dist);
+
+          if (queueSound == true) {
+            console.log("queuing sound");
+            const dist = new Tone.Reverb(reverbValue).toDestination();
+            const synth = new SynthProp().toDestination();
+            synth.triggerAttackRelease(note, "8n").connect(dist);
+          }
         }
+        setQueueSound(false);
       });
     };
 
     const startCollisionDetection = () => {
-      console.log("Starting collision detection...");
-      setInterval(() => {
-        checkCollision();
-      }, 0.0000000000000001);
+      if (queueSound == true)
+        setInterval(() => {
+          checkCollision();
+        }, 15);
     };
   }
 
@@ -71,7 +77,7 @@ const Hold: React.FC<HoldProps> = ({
     <>
       <svg
         onClick={handleClick}
-        className={`svgHoldNotSelected ${
+        className={`baseSvgHold ${
           selected ? "svgHoldSelected" : "svgHoldNotSelected"
         }`}
         xmlns="http://www.w3.org/2000/svg"
