@@ -21,7 +21,6 @@ const Hold: React.FC<HoldProps> = ({
   reverbValue,
 }) => {
   const [selected, setSelected] = useState<boolean>(false);
-  const [queueSound, setQueueSound] = useState<boolean>(true);
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
     setSelected(!selected);
@@ -31,17 +30,18 @@ const Hold: React.FC<HoldProps> = ({
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
-
       if (holds.length > 0 && line) {
         clearInterval(checkForElements); // Stop checking
         startCollisionDetection();
       }
     }, 100);
 
+    let isColliding = false;
+
     const checkCollision = () => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
-
+      console.log;
       if (!line || holds.length === 0) {
         return;
       }
@@ -51,25 +51,24 @@ const Hold: React.FC<HoldProps> = ({
       holds.forEach((svg, index) => {
         const svgRect = svg.getBoundingClientRect();
 
-        if (lineRect.top < svgRect.bottom) {
-          console.log("collided");
-
-          if (queueSound == true) {
-            console.log("queuing sound");
+        if (
+          lineRect.y + lineRect.height >= svgRect.y &&
+          lineRect.y <= svgRect.y + svgRect.height
+        ) {
+          if (!isColliding) {
             const dist = new Tone.Reverb(reverbValue).toDestination();
             const synth = new SynthProp().toDestination();
             synth.triggerAttackRelease(note, "8n").connect(dist);
+
+            isColliding = true;
           }
         }
-        setQueueSound(false);
       });
     };
 
     const startCollisionDetection = () => {
-      if (queueSound == true)
-        setInterval(() => {
-          checkCollision();
-        }, 15);
+      requestAnimationFrame(startCollisionDetection);
+      checkCollision();
     };
   }
 
