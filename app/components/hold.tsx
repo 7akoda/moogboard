@@ -26,12 +26,19 @@ const Hold: React.FC<HoldProps> = ({
     setSelected(!selected);
   };
 
+  const playTone = () => {
+    // const dist = new Tone.Reverb(reverbValue).toDestination();
+    const synth = new Tone.Synth().toDestination();
+    synth.triggerAttackRelease("c2", "8n");
+    // .connect(dist);
+  };
+
   if (typeof document !== "undefined") {
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
       if (holds.length > 0 && line) {
-        clearInterval(checkForElements); // Stop checking
+        clearInterval(checkForElements);
         startCollisionDetection();
       }
     }, 100);
@@ -41,7 +48,7 @@ const Hold: React.FC<HoldProps> = ({
     const checkCollision = () => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
-      console.log;
+
       if (!line || holds.length === 0) {
         return;
       }
@@ -53,15 +60,11 @@ const Hold: React.FC<HoldProps> = ({
 
         if (
           lineRect.y + lineRect.height >= svgRect.y &&
-          lineRect.y <= svgRect.y + svgRect.height
+          lineRect.y <= svgRect.y + svgRect.height &&
+          !isColliding
         ) {
-          if (!isColliding) {
-            const dist = new Tone.Reverb(reverbValue).toDestination();
-            const synth = new SynthProp().toDestination();
-            synth.triggerAttackRelease(note, "8n").connect(dist);
-
-            isColliding = true;
-          }
+          playTone();
+          isColliding = true;
         }
       });
     };
