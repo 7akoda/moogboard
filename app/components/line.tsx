@@ -4,7 +4,6 @@ const Line = () => {
   const [animate, setAnimate] = useState(false);
 
   const handleClick = () => {
-    setAnimate(false);
     setTimeout(() => setAnimate(true), 0);
     setTimeout(() => setAnimate(false), 5000);
   };

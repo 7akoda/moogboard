@@ -1,12 +1,13 @@
-import React, { useState } from "react";
 import * as Tone from "tone";
 import Hold from "./hold";
 import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
 import Line from "../components/line";
+import useCollision from "./collision";
 
 const Board = () => {
+  const { playing, setPlaying } = useCollision();
   return (
     <div className="flex flex-col ">
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
@@ -70,7 +71,7 @@ const Board = () => {
           d="m227.02-2.41 7.006-.526c.648-.014.579.069.62.441.031.624.335 1.163.298 1.647-.034.423-1.558 2.209-2.521 3.255-.403.516-.753.467-1.126-.007-.69-.796-1.187-1.848-2.08-2.37a30 30 0 0 0-2.326-1.283c-.335-.146-.374-.435-.381-.806-.004-.282-.021-.316.51-.351"
         ></Hold>
       </Row>
-      {/* <Row viewBox="-2.2 6.5 242.5 24.57">
+      <Row viewBox="-2.2 6.5 242.5 24.57">
         <Hold
           SynthProp={Tone.PluckSynth}
           note={"c2"}
@@ -895,7 +896,7 @@ const Board = () => {
           fill="#ffe57f"
           d="M233.724 311.008c-.221-.296.037-.429.337-.469 1.255-.167 2.559-.715 3.304-1.428.354-.324.489-.269.785-.169 1.142.41 2.122.378 2.946.466.959.106.359.571.42.946.166 1.093-.325 2.188-2.357 3.472-1.93 1.192-4.431-1.519-5.435-2.818"
         />
-      </Specialrow> */}
+      </Specialrow>
       <Line></Line>
     </div>
   );
