@@ -4,10 +4,8 @@ import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
 import Line from "../components/line";
-import useCollision from "./collision";
 
 const Board = () => {
-  const { playing, setPlaying } = useCollision();
   return (
     <div className="flex flex-col ">
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">

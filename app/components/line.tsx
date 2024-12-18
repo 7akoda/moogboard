@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-
+import useCollision from "./collision";
 const Line = () => {
   const [animate, setAnimate] = useState(false);
-
+  const { playing, setPlaying } = useCollision();
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
     setTimeout(() => setAnimate(false), 5000);
+    setPlaying(!playing);
   };
 
   return (

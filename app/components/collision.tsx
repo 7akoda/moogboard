@@ -3,22 +3,15 @@ import * as Tone from "tone";
 
 const useCollision = () => {
   const [playing, setPlaying] = useState<boolean>(false);
-
-  const playTone = () => {
-    console.log("Tone Played");
-    const synth = new Tone.Synth().toDestination();
-    synth.triggerAttackRelease("c2", "8n");
-  };
+  const triggeredSvgs = new Set<Element>();
 
   useEffect(() => {
-    let resetState: NodeJS.Timeout;
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
 
       if (holds.length > 0 && line) {
         clearInterval(checkForElements);
-        console.log("initial if - collision detection started");
         startCollisionDetection();
       }
     }, 10);
@@ -36,14 +29,14 @@ const useCollision = () => {
       const lineRect = line.getBoundingClientRect();
 
       for (const svg of holds) {
+        if (triggeredSvgs.has(svg)) continue;
         const svgRect = svg.getBoundingClientRect();
 
         if (
           lineRect.y + lineRect.height >= svgRect.y &&
-          lineRect.y <= svgRect.y + svgRect.height &&
-          !playing
+          lineRect.y <= svgRect.y + svgRect.height
         ) {
-          setPlaying(true);
+          triggeredSvgs.add(svg);
           cancelAnimationFrame(animationFrameId);
           playTone();
 
@@ -57,15 +50,11 @@ const useCollision = () => {
       animationFrameId = requestAnimationFrame(startCollisionDetection);
     };
 
-    resetState = setTimeout(() => {
-      setPlaying(false);
-      console.log("ready to play again");
-    }, 5000);
+    triggeredSvgs.clear();
 
     return () => {
       clearInterval(checkForElements);
       cancelAnimationFrame(animationFrameId);
-      clearTimeout(resetState);
     };
   }, [playing]);
 

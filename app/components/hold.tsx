@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import * as Tone from "tone";
 
 interface HoldProps {
@@ -20,6 +20,11 @@ const Hold: React.FC<HoldProps> = ({
   SynthProp,
   reverbValue,
 }) => {
+  const playTone = () => {
+    const reverb = new Tone.Reverb(reverbValue);
+    const synth = new SynthProp().toDestination();
+    synth.triggerAttackRelease(note, "8n");
+  };
   const [selected, setSelected] = useState<boolean>(false);
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
