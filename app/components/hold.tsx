@@ -21,9 +21,9 @@ const Hold: React.FC<HoldProps> = ({
   reverbValue,
 }) => {
   const playTone = () => {
-    const reverb = new Tone.Reverb(reverbValue);
+    const reverb = new Tone.Reverb(reverbValue).toDestination();
     const synth = new SynthProp().toDestination();
-    synth.triggerAttackRelease(note, "8n");
+    synth.triggerAttackRelease(note, "8n").connect(reverb);
   };
   const [selected, setSelected] = useState<boolean>(false);
 
