@@ -1,16 +1,23 @@
-import { useState, useEffect } from "react";
-import * as Tone from "tone";
+import React, { useState, useEffect, useRef } from "react";
+import Hold, { HoldRef } from "./hold";
 
 const useCollision = () => {
   const [playing, setPlaying] = useState<boolean>(false);
+
   const triggeredSvgs = new Set<Element>();
 
+  const holdRefs = useRef<Map<Element, React.RefObject<HoldRef>>>(new Map());
   useEffect(() => {
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
       const line = document.querySelector(".lineMoving");
 
       if (holds.length > 0 && line) {
+        holds.forEach((hold) => {
+          if (!holdRefs.current.has(hold)) {
+            holdRefs.current.set(hold, React.createRef());
+          }
+        });
         clearInterval(checkForElements);
         startCollisionDetection();
       }
@@ -38,8 +45,12 @@ const useCollision = () => {
         ) {
           triggeredSvgs.add(svg);
           cancelAnimationFrame(animationFrameId);
-          playTone();
 
+          const holdRef = holdRefs.current.get(svg);
+          if (holdRef?.current) {
+            holdRef.current.playTone();
+            return;
+          }
           return;
         }
       }
@@ -58,7 +69,6 @@ const useCollision = () => {
     };
   }, [playing]);
 
-  return { playing, setPlaying };
+  return { playing, setPlaying, holdRefs };
 };
-
 export default useCollision;

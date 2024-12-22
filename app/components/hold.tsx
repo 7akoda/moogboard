@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useImperativeHandle, forwardRef } from "react";
 import * as Tone from "tone";
 
 interface HoldProps {
@@ -13,35 +13,40 @@ interface HoldProps {
   reverbValue: number;
 }
 
-const Hold: React.FC<HoldProps> = ({
-  fill,
-  d,
-  note,
-  SynthProp,
-  reverbValue,
-}) => {
-  const playTone = () => {
-    const reverb = new Tone.Reverb(reverbValue).toDestination();
-    const synth = new SynthProp().toDestination();
-    synth.triggerAttackRelease(note, "8n").connect(reverb);
-  };
-  const [selected, setSelected] = useState<boolean>(false);
+export interface HoldRef {
+  playTone: () => void;
+}
 
-  const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
-    setSelected(!selected);
-  };
+const Hold = forwardRef<HoldRef, HoldProps>(
+  ({ fill, d, note, SynthProp, reverbValue }, ref) => {
+    const [selected, setSelected] = useState<boolean>(false);
 
-  return (
-    <>
-      <svg
-        onClick={handleClick}
-        className={`${selected ? "svgHoldSelected" : "svgHoldNotSelected"}`}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path fill={fill} d={d} />
-      </svg>
-    </>
-  );
-};
+    const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
+      setSelected(!selected);
+    };
+
+    const playTone = () => {
+      const reverb = new Tone.Reverb(reverbValue).toDestination();
+      const synth = new SynthProp().toDestination();
+      synth.triggerAttackRelease(note, "8n").connect(reverb);
+    };
+
+    useImperativeHandle(ref, () => ({
+      playTone,
+    }));
+
+    return (
+      <>
+        <svg
+          onClick={handleClick}
+          className={`${selected ? "svgHoldSelected" : "svgHoldNotSelected"}`}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path fill={fill} d={d} />
+        </svg>
+      </>
+    );
+  }
+);
 
 export default Hold;

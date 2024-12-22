@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import useCollision from "./collision";
+
 const Line = () => {
   const [animate, setAnimate] = useState(false);
   const { playing, setPlaying } = useCollision();
