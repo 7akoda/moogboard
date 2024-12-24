@@ -7,6 +7,7 @@ const useCollision = () => {
   const triggeredSvgs = new Set<Element>();
 
   const holdRefs = useRef<Map<Element, React.RefObject<HoldRef>>>(new Map());
+
   useEffect(() => {
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
