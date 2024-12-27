@@ -8,12 +8,12 @@ import Line from "../components/line";
 import useCollision from "./collision";
 
 const Board = () => {
-  const { holdRefs } = useCollision();
+  const { holdRef } = useCollision();
   return (
     <div className="flex flex-col ">
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.FMSynth}
           reverbValue={7}
           note={"C1"}
@@ -21,7 +21,7 @@ const Board = () => {
           d="M4.082-4.155c2.497-.014 4.877.712 7.298 1.587C15.098-1.327 16.749.228 16.723.638c-.022.677-1.712 1.735-2.968 2.019-2.221.574-4.084.35-6.016.371L.492 2.794c-2.214-.188-3.161-1.01-3.165-1.778-.036-1.475.708-2.357 2.194-3.554 1.724-1.263 3.006-1.5 4.559-1.618"
         ></Hold>
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.AMSynth}
           reverbValue={5}
           note={"C1"}
@@ -29,7 +29,7 @@ const Board = () => {
           d="M19.973-3.07c1.693-.417 1.807-.398 3.517-.607 4.39-.456 12.058-.063 12.845 1.693.73 1.378.747 1.099-.457 1.712-6.242 2.631-8.626 3.388-11.925 4.427-2.497.82-2.008.733-2.715-.871l-2.081-4.87c-.569-1.141-.599-1.126.816-1.484"
         ></Hold>
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.FMSynth}
           reverbValue={3}
           note={"C#1"}
@@ -37,7 +37,7 @@ const Board = () => {
           d="M43.667 1.023c-.111-4.534-.259-4.563 1.331-4.504 3.928.14 7.855.279 11.794.346 4.488 0 4.251-.43 4.546 1.295.473 2.689.45 2.516-.167 2.768-1.565.513-3.13 1.026-4.686 1.606-2.932 1.142-2.829 1.161-5.007 1.112l-6.385-.095c-1.377-.07-1.279-.126-1.426-2.528"
         ></Hold>
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.Synth}
           reverbValue={1}
           note={"C1"}
@@ -45,7 +45,7 @@ const Board = () => {
           d="M67.037-4.455c1.541-.752 2.62-1.367 4.973-1.668 2.589-.344 4.581-.299 6.976-.08 3.499.447 3.993 2.011 3.389 3.306C81.1.108 79.16 2.511 78.03 3.499c-2.079 1.78-3.022 2.175-4.34 2.18-2.655-.042-4.919-1.099-5.41-1.86-.697-1.066-1.581-4.52-1.807-5.55-.462-2.218-.758-2.027.564-2.724"
         ></Hold>
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.AMSynth}
           reverbValue={0.5}
           note={"C#1"}
@@ -79,7 +79,7 @@ const Board = () => {
       </Row>
       <Row viewBox="-2.2 6.5 242.5 24.57">
         <Hold
-          ref={holdRefs}
+          ref={holdRef}
           SynthProp={Tone.PluckSynth}
           reverbValue={7}
           note={"c2"}
