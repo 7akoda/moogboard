@@ -1,30 +1,55 @@
 import React, { useState } from "react";
+import * as Tone from "tone";
+import useCollision from "./collision";
+
 interface HoldProps {
   fill: string;
   d: string;
   viewBox: string;
+  note: Tone.Unit.Frequency;
+  SynthProp:
+    | typeof Tone.Synth
+    | typeof Tone.FMSynth
+    | typeof Tone.AMSynth
+    | typeof Tone.PluckSynth;
+  reverbValue: number;
+
+  id: string;
 }
 
-const Hold: React.FC<HoldProps> = ({ fill, d, viewBox }) => {
+const Hold: React.FC<HoldProps> = ({
+  fill,
+  d,
+  viewBox,
+  note,
+  SynthProp,
+  reverbValue,
+  id,
+}) => {
   const [selected, setSelected] = useState<boolean>(false);
   const handleClick: React.MouseEventHandler<SVGSVGElement> = () => {
     setSelected(!selected);
   };
 
+  const playTone = () => {
+    const reverb = new Tone.Reverb(reverbValue).toDestination();
+    const synth = new SynthProp().toDestination();
+    synth.triggerAttackRelease(note, "8n").connect(reverb);
+  };
+  useCollision(playTone, id);
+
   return (
-    <svg
-      viewBox={viewBox}
-      onClick={handleClick}
-      className={
-        selected
-          ? "cursor-pointer animate-pulse "
-          : "cursor-pointer hover:opacity-40 transition-opacity duration-200 ease-in"
-      }
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path fill={fill} d={d} />
-    </svg>
+    <>
+      <svg
+        viewBox={viewBox}
+        id={`hold-${id}`}
+        onClick={handleClick}
+        className={`${selected ? "svgHoldSelected" : "svgHoldNotSelected"}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fill={fill} d={d} />
+      </svg>
+    </>
   );
 };
-
 export default Hold;

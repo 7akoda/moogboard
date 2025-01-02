@@ -1,11 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import Hold, { HoldRef } from "./hold";
-
-const useCollision = () => {
-  const [playing, setPlaying] = useState<boolean>(false);
-  const triggeredSvgs = new Set<Element>();
-
-  const holdRef = useRef<HoldRef>(null);
+import React, { useEffect, useRef } from "react";
+import playing from "./board";
+const useCollision = (callback: () => void, id: string) => {
+  const triggeredHolds = useRef(new Set<string>());
 
   useEffect(() => {
     const checkForElements = setInterval(() => {
@@ -25,26 +21,28 @@ const useCollision = () => {
       const line = document.querySelector(".lineMoving");
 
       if (!line || holds.length === 0) {
+        cancelAnimationFrame(animationFrameId);
         return;
       }
 
       const lineRect = line.getBoundingClientRect();
 
       for (const svg of holds) {
-        if (triggeredSvgs.has(svg)) continue;
+        const svgId = svg.id.replace("hold-", "");
+        if (triggeredHolds.current.has(svgId)) continue;
         const svgRect = svg.getBoundingClientRect();
 
         if (
           lineRect.y + lineRect.height >= svgRect.y &&
           lineRect.y <= svgRect.y + svgRect.height
         ) {
-          triggeredSvgs.add(svg);
-          cancelAnimationFrame(animationFrameId);
+          triggeredHolds.current.add(svgId);
 
-          if (holdRef.current) {
-            holdRef.current.playTone();
+          if (svgId === id) {
+            callback();
+            cancelAnimationFrame(animationFrameId);
+            return;
           }
-          return;
         }
       }
     };
@@ -54,15 +52,12 @@ const useCollision = () => {
       animationFrameId = requestAnimationFrame(startCollisionDetection);
     };
 
-    triggeredSvgs.clear();
-
     return () => {
       clearInterval(checkForElements);
       cancelAnimationFrame(animationFrameId);
+      triggeredHolds.current.clear();
     };
-  }, [playing]);
-
-  return { playing, setPlaying, holdRef };
+  }, [callback, id, playing]);
 };
 
 export default useCollision;

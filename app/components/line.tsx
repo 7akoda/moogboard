@@ -1,9 +1,14 @@
 import React, { useState } from "react";
 import useCollision from "./collision";
 
-const Line = () => {
+interface lineProps {
+  playing: boolean;
+  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
   const [animate, setAnimate] = useState(false);
-  const { playing, setPlaying } = useCollision();
+
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
     setTimeout(() => setAnimate(false), 5000);
@@ -20,13 +25,11 @@ const Line = () => {
       </button>
       <svg
         viewBox="0 0 242.5 1.2"
-        className={
-          animate ? "lineMoving" : "absolute h-auto w-[20%] opacity-0 "
-        }
+        className={animate ? "lineMoving" : "absolute h-auto opacity-0 "}
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
-          <rect fill="#d97706" width="900" height="0.5" y="1" />
+          <rect fill="#d97706" width="800" height="0.5" />
         </g>
       </svg>
     </div>
