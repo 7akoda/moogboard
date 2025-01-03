@@ -11,7 +11,7 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
 
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
-    setTimeout(() => setAnimate(false), 5000);
+    setTimeout(() => setAnimate(false), 10000);
     setPlaying(!playing);
   };
 

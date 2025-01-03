@@ -68,7 +68,7 @@ svg {
   height: auto;
   position: absolute;
   overflow: hidden;
-  animation: moveUp linear 5s;
+  animation: moveUp linear 10s;
 }
 
 @keyframes moveUp {
