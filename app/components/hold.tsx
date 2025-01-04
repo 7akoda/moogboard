@@ -4,7 +4,7 @@ import useCollision from "./collision";
 interface HoldProps {
   fill: string;
   d: string;
-  note: Tone.Unit.Frequency;
+  note: Tone.Unit.Frequency[];
   SynthProp:
     | typeof Tone.Synth
     | typeof Tone.FMSynth
@@ -31,8 +31,23 @@ const Hold: React.FC<HoldProps> = ({
 
   const playTone = () => {
     const reverb = new Tone.Reverb(reverbValue).toDestination();
-    const synth = new SynthProp().toDestination();
-    synth.triggerAttackRelease(note, "8n").connect(reverb);
+
+    if (SynthProp == Tone.Synth) {
+      const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.AMSynth) {
+      const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.FMSynth) {
+      const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.PluckSynth) {
+      const synth = new Tone.PolySynth(Tone.PluckSynth).toDestination();
+      synth.triggerAttackRelease(note, "+2").connect(reverb);
+    }
   };
   useCollision(playTone, id);
   return (

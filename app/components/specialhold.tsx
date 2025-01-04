@@ -1,16 +1,31 @@
 import React, { useState } from "react";
 import * as Tone from "tone";
 import useCollision from "./collision";
-import mp3 from "../mp3/";
+import mp3 from "../mp3/supersaw1.wav";
 
 interface HoldProps {
   fill: string;
   d: string;
+  note: Tone.Unit.Frequency[];
+  SynthProp:
+    | typeof Tone.Synth
+    | typeof Tone.FMSynth
+    | typeof Tone.AMSynth
+    | typeof Tone.MembraneSynth;
+  reverbValue: number;
   viewBox: string;
   id: string;
 }
 
-const Hold: React.FC<HoldProps> = ({ fill, d, viewBox, reverbValue, id }) => {
+const Hold: React.FC<HoldProps> = ({
+  fill,
+  d,
+  note,
+  SynthProp,
+  reverbValue,
+  id,
+  viewBox,
+}) => {
   const [selected, setSelected] = useState<boolean>(false);
   const handleClick: React.MouseEventHandler<SVGSVGElement> = () => {
     setSelected(!selected);
@@ -18,13 +33,22 @@ const Hold: React.FC<HoldProps> = ({ fill, d, viewBox, reverbValue, id }) => {
 
   const playTone = () => {
     const reverb = new Tone.Reverb(reverbValue).toDestination();
-    const sampler = new Tone.Sampler({
-      urls: {
-        a1: "lalala.mp3",
-      },
-      baseUrl: "../mp3/",
-    }).toDestination();
-    sampler.triggerAttackRelease("", 12.5).connect(reverb);
+    if (SynthProp == Tone.Synth) {
+      const synth = new Tone.PolySynth(Tone.Synth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.AMSynth) {
+      const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.FMSynth) {
+      const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
+    if (SynthProp == Tone.MembraneSynth) {
+      const synth = new Tone.PolySynth(Tone.MembraneSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
+    }
   };
   useCollision(playTone, id);
 
