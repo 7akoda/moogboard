@@ -11,7 +11,7 @@ interface HoldProps {
     | typeof Tone.Synth
     | typeof Tone.FMSynth
     | typeof Tone.AMSynth
-    | typeof Tone.MembraneSynth;
+    | typeof Tone.MonoSynth;
   reverbValue: number;
   viewBox: string;
   id: string;
@@ -45,8 +45,8 @@ const Hold: React.FC<HoldProps> = ({
       const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
       synth.triggerAttackRelease(note, "10n").connect(reverb);
     }
-    if (SynthProp == Tone.MembraneSynth) {
-      const synth = new Tone.PolySynth(Tone.MembraneSynth).toDestination();
+    if (SynthProp == Tone.MonoSynth) {
+      const synth = new Tone.PolySynth(Tone.MonoSynth).toDestination();
       synth.triggerAttackRelease(note, "10n").connect(reverb);
     }
   };

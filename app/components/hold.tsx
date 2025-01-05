@@ -9,7 +9,7 @@ interface HoldProps {
     | typeof Tone.Synth
     | typeof Tone.FMSynth
     | typeof Tone.AMSynth
-    | typeof Tone.PluckSynth;
+    | typeof Tone.MonoSynth;
   reverbValue: number;
 
   id: string;
@@ -44,9 +44,9 @@ const Hold: React.FC<HoldProps> = ({
       const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
       synth.triggerAttackRelease(note, "10n").connect(reverb);
     }
-    if (SynthProp == Tone.PluckSynth) {
-      const synth = new Tone.PolySynth(Tone.PluckSynth).toDestination();
-      synth.triggerAttackRelease(note, "+2").connect(reverb);
+    if (SynthProp == Tone.MonoSynth) {
+      const synth = new Tone.PolySynth(Tone.MonoSynth).toDestination();
+      synth.triggerAttackRelease(note, "10n").connect(reverb);
     }
   };
   useCollision(playTone, id);
