@@ -63,12 +63,28 @@ svg {
   }
 }
 
-.lineMoving {
+.lineMoving10 {
   width: 27vw;
   height: auto;
   position: absolute;
   overflow: hidden;
   animation: moveUp linear 10s;
+}
+
+.lineMoving7 {
+  width: 27vw;
+  height: auto;
+  position: absolute;
+  overflow: hidden;
+  animation: moveUp linear 7s;
+}
+
+.lineMoving4 {
+  width: 27vw;
+  height: auto;
+  position: absolute;
+  overflow: hidden;
+  animation: moveUp linear 4s;
 }
 
 @keyframes moveUp {
