@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import useCollision from "./collision";
 
 interface lineProps {
   playing: boolean;
@@ -8,10 +7,14 @@ interface lineProps {
 
 const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
   const [animate, setAnimate] = useState(false);
+  const [bpm, setBpm] = useState(7);
 
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
-    setTimeout(() => setAnimate(false), 10000);
+    setTimeout(
+      () => setAnimate(false),
+      bpm === 10 ? 10000 : bpm === 7 ? 7000 : bpm === 4 ? 4000 : 10000
+    );
     setPlaying(!playing);
   };
 
@@ -23,9 +26,18 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
       >
         move up
       </button>
+
       <svg
         viewBox="0 0 242.5 1.2"
-        className={animate ? "lineMoving" : "absolute h-auto opacity-0 "}
+        className={
+          animate && bpm == 10
+            ? "lineMoving10"
+            : animate && bpm == 7
+            ? "lineMoving7"
+            : animate && bpm == 4
+            ? "lineMoving4"
+            : "absolute h-auto opacity-0 "
+        }
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
