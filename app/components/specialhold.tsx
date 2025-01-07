@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import * as Tone from "tone";
 import useCollision from "./collision";
-import mp3 from "../mp3/supersaw1.wav";
-
+import wav from "../mp3/supersaw1.wav";
 interface HoldProps {
   fill: string;
   d: string;
@@ -33,21 +32,55 @@ const Hold: React.FC<HoldProps> = ({
 
   const playTone = () => {
     const reverb = new Tone.Reverb(reverbValue).toDestination();
+    const compressor = new Tone.Compressor({
+      threshold: -18,
+      ratio: 4,
+      attack: 0.01,
+      release: 0.1,
+    });
+
     if (SynthProp == Tone.Synth) {
       const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-      synth.triggerAttackRelease(note, "10n").connect(reverb);
+      synth
+        .triggerAttackRelease(note, "10n")
+        .connect(reverb)
+        .connect(compressor);
+      setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.AMSynth) {
       const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
-      synth.triggerAttackRelease(note, "10n").connect(reverb);
+      synth
+        .triggerAttackRelease(note, "10n")
+        .connect(reverb)
+        .connect(compressor);
+
+      setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.FMSynth) {
       const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
-      synth.triggerAttackRelease(note, "10n").connect(reverb);
+      synth
+        .triggerAttackRelease(note, "10n")
+        .connect(reverb)
+        .connect(compressor);
+
+      setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.MonoSynth) {
-      const synth = new Tone.PolySynth(Tone.MonoSynth).toDestination();
-      synth.triggerAttackRelease(note, "10n").connect(reverb);
+      const buffer = new Tone.ToneAudioBuffer(wav, () => {
+        console.log("Buffer loaded");
+
+        const sampler = new Tone.Sampler({
+          c3: buffer,
+        }).toDestination();
+
+        const reverb = new Tone.Reverb().toDestination();
+        const compressor = new Tone.Compressor().toDestination();
+        sampler.connect(reverb).connect(compressor);
+
+        sampler.triggerAttackRelease(note, "10n");
+
+        setTimeout(() => sampler.dispose(), 1200);
+      });
     }
   };
   useCollision(playTone, id);
