@@ -6,7 +6,9 @@ const useCollision = (callback: () => void, id: string) => {
   useEffect(() => {
     const checkForElements = setInterval(() => {
       const holds = document.querySelectorAll(".svgHoldSelected");
-      const line = document.querySelector(".lineMoving");
+      const line = document.querySelector(
+        ".lineMoving4, .lineMoving7, .lineMoving10"
+      );
 
       if (holds.length > 0 && line) {
         clearInterval(checkForElements);
@@ -18,7 +20,9 @@ const useCollision = (callback: () => void, id: string) => {
 
     const checkCollision = () => {
       const holds = document.querySelectorAll(".svgHoldSelected");
-      const line = document.querySelector(".lineMoving");
+      const line = document.querySelector(
+        ".lineMoving4, .lineMoving7, .lineMoving10"
+      );
 
       if (!line || holds.length === 0) {
         cancelAnimationFrame(animationFrameId);
