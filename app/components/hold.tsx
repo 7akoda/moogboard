@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as Tone from "tone";
 import useCollision from "./collision";
-import wav from "../mp3/supersaw1.wav";
+
 interface HoldProps {
   fill: string;
   d: string;
@@ -11,7 +11,6 @@ interface HoldProps {
     | typeof Tone.FMSynth
     | typeof Tone.AMSynth
     | typeof Tone.MonoSynth;
-  reverbValue: number;
 
   id: string;
 }
@@ -21,7 +20,7 @@ const Hold: React.FC<HoldProps> = ({
   d,
   note,
   SynthProp,
-  reverbValue,
+
   id,
 }) => {
   const [selected, setSelected] = useState<boolean>(false);
@@ -31,7 +30,7 @@ const Hold: React.FC<HoldProps> = ({
   };
 
   const playTone = () => {
-    const reverb = new Tone.Reverb(reverbValue).toDestination();
+    const reverb = new Tone.Reverb(6).toDestination();
     const compressor = new Tone.Compressor({
       threshold: -18,
       ratio: 4,
@@ -40,47 +39,103 @@ const Hold: React.FC<HoldProps> = ({
     });
 
     if (SynthProp == Tone.Synth) {
-      const synth = new Tone.PolySynth(Tone.Synth).toDestination();
-      synth
-        .triggerAttackRelease(note, "10n")
-        .connect(reverb)
-        .connect(compressor);
+      const synth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: {
+          type: "pulse",
+          width: 0.4,
+        },
+        envelope: {
+          attack: 0.02,
+          decay: 0.15,
+          sustain: 0.3,
+          release: 1.2,
+        },
+      }).toDestination();
+
+      const pulseFilter = new Tone.Filter({
+        type: "bandpass",
+        frequency: 1000,
+        Q: 2,
+      }).toDestination();
+      synth.chain(pulseFilter, reverb, compressor);
+      synth.triggerAttackRelease(note, "10n");
       setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.AMSynth) {
-      const synth = new Tone.PolySynth(Tone.AMSynth).toDestination();
-      synth
-        .triggerAttackRelease(note, "10n")
-        .connect(reverb)
-        .connect(compressor);
+      const synth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: {
+          type: "triangle",
+        },
+        envelope: {
+          attack: 1,
+          decay: 2,
+          sustain: 0.7,
+          release: 3,
+        },
+      }).toDestination();
+
+      const filter = new Tone.Filter({
+        type: "highpass",
+        frequency: 400,
+        rolloff: -12,
+        Q: 2,
+      }).toDestination();
+
+      synth.chain(filter, reverb, compressor);
+      synth.volume.value = +10;
+      synth.triggerAttackRelease(note, "10n");
       setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.FMSynth) {
-      const synth = new Tone.PolySynth(Tone.FMSynth).toDestination();
-      synth
-        .triggerAttackRelease(note, "10n")
-        .connect(reverb)
-        .connect(compressor);
+      const synth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: {
+          type: "sawtooth",
+        },
+        envelope: {
+          attack: 0.05,
+          decay: 0.3,
+          sustain: 0.4,
+          release: 2,
+        },
+      }).toDestination();
+
+      const filter = new Tone.Filter({
+        type: "bandpass",
+        frequency: 800,
+        rolloff: -24,
+        Q: 8,
+      }).toDestination();
+
+      synth.chain(filter, reverb, compressor);
+      synth.triggerAttackRelease(note, "10n");
       setTimeout(() => synth.dispose(), 1200);
     }
     if (SynthProp == Tone.MonoSynth) {
-      const buffer = new Tone.ToneAudioBuffer(wav, () => {
-        console.log("Buffer loaded");
+      const synth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: {
+          type: "square",
+        },
+        envelope: {
+          attack: 0.01,
+          decay: 0.1,
+          sustain: 0.1,
+          release: 1.5,
+        },
+      }).toDestination();
 
-        const sampler = new Tone.Sampler({
-          c3: buffer,
-        }).toDestination();
+      const filter = new Tone.Filter({
+        type: "lowpass",
+        frequency: 1200,
+        rolloff: -12,
+        Q: 1,
+      }).toDestination();
 
-        const reverb = new Tone.Reverb().toDestination();
-        const compressor = new Tone.Compressor().toDestination();
-        sampler.connect(reverb).connect(compressor);
-
-        sampler.triggerAttackRelease(note, "10n");
-
-        setTimeout(() => sampler.dispose(), 1200);
-      });
+      synth.chain(filter, reverb, compressor);
+      synth.triggerAttackRelease(note, "10n");
+      setTimeout(() => synth.dispose(), 1200);
     }
   };
+
   useCollision(playTone, id);
   return (
     <>
