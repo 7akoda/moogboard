@@ -19,14 +19,35 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
   };
 
   return (
-    <div className=" flex flex-col justify-end items-center ">
-      <button
-        className=" cursor-pointer z-10 absolute h-auto"
-        onClick={handleClick}
-      >
-        move up
-      </button>
-
+    <div className=" flex flex-col justify-start items-center ">
+      <div className={animate == true ? "flex flex-col" : "flex flex-col"}>
+        <button disabled={animate} className="button" onClick={handleClick}>
+          play
+        </button>
+        <div className="flex flex-row ">
+          <button
+            disabled={animate}
+            className={bpm == 10 ? "buttonSMSelected" : "buttonSM"}
+            onClick={() => setBpm(10)}
+          >
+            slow
+          </button>
+          <button
+            disabled={animate}
+            className={bpm == 7 ? "buttonSMSelected" : "buttonSM"}
+            onClick={() => setBpm(7)}
+          >
+            medium
+          </button>
+          <button
+            disabled={animate}
+            className={bpm == 4 ? "buttonSMSelected" : "buttonSM"}
+            onClick={() => setBpm(4)}
+          >
+            fast
+          </button>
+        </div>
+      </div>
       <svg
         viewBox="0 0 242.5 1.2"
         className={
