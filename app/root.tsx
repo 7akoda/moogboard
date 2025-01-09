@@ -14,6 +14,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/faviconHold.svg" type="image/svg+xml"></link>
+        <link
+          rel="stylesheet"
+          href="https://use.typekit.net/cyp4jyx.css"
+        ></link>
         <Meta />
         <Links />
       </head>
