@@ -4,6 +4,10 @@
 
 html,
 body {
+  font-family: "carlmarx", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+
   margin: 0;
   padding: 0;
 
@@ -46,14 +50,75 @@ svg {
   transition-duration: 150ms;
 }
 
-.baseSvgHold {
+.svgHoldNotSelected:hover {
+  opacity: 0.4;
+}
+
+.button {
+  background-color: #e8e9eb;
+  width: 100px;
+  font-weight: 800;
+  color: #313638;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-width: 1px;
+  border-radius: 0.375rem;
+  line-height: 26px;
+  font-size: 18px;
+  z-index: 10;
   cursor: pointer;
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
 
-.svgHoldNotSelected:hover {
+.button:hover {
+  opacity: 0.4;
+}
+
+.buttonSM {
+  background-color: #e8e9eb;
+  width: 32px;
+  font-weight: 800;
+  color: #313638;
+  margin-top: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-width: 2.5px;
+  border-radius: 9px;
+  line-height: 26px;
+  font-size: 10px;
+  z-index: 10;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.buttonSMSelected {
+  background-color: #e8e9eb;
+  width: 32px;
+  font-weight: 800;
+  color: #313638;
+  margin-top: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-width: 2.5px;
+  border-radius: 9px;
+  border-color: #d97706;
+  line-height: 26px;
+  font-size: 10px;
+  z-index: 10;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.buttonSM:hover {
+  opacity: 0.4;
+}
+
+.buttonSMSelected:hover {
   opacity: 0.4;
 }
 
