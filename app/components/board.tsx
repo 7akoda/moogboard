@@ -10,7 +10,7 @@ const Board = () => {
   const [playing, setPlaying] = useState<boolean>(false);
 
   return (
-    <div className="flex flex-col">
+    <>
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
         <Hold
           id="188"
@@ -1509,7 +1509,7 @@ const Board = () => {
         />
       </Specialrow>
       <Line playing={playing} setPlaying={setPlaying}></Line>
-    </div>
+    </>
   );
 };
 
