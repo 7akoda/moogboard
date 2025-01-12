@@ -20,33 +20,39 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
 
   return (
     <div className=" flex flex-col justify-start items-center ">
-      <div className={animate == true ? "flex flex-col" : "flex flex-col"}>
-        <button disabled={animate} className="button" onClick={handleClick}>
-          play
+      {/* <svg viewBox="2 6.8747 60 6">
+        <path
+          fill="#e8e9eb"
+          d="M 2 9.491 C 2 6 17 6 17 9.507 C 17 14 2 14 2 9.491"
+        >
+          {" "}
+        </path>
+      </svg> */}
+      <button disabled={animate} className="button" onClick={handleClick}>
+        play
+      </button>
+      <div className="flex flex-row ">
+        <button
+          disabled={animate}
+          className={bpm == 10 ? "buttonSMSelected" : "buttonSM"}
+          onClick={() => setBpm(10)}
+        >
+          slow
         </button>
-        <div className="flex flex-row ">
-          <button
-            disabled={animate}
-            className={bpm == 10 ? "buttonSMSelected" : "buttonSM"}
-            onClick={() => setBpm(10)}
-          >
-            slow
-          </button>
-          <button
-            disabled={animate}
-            className={bpm == 7 ? "buttonSMSelected" : "buttonSM"}
-            onClick={() => setBpm(7)}
-          >
-            medium
-          </button>
-          <button
-            disabled={animate}
-            className={bpm == 4 ? "buttonSMSelected" : "buttonSM"}
-            onClick={() => setBpm(4)}
-          >
-            fast
-          </button>
-        </div>
+        <button
+          disabled={animate}
+          className={bpm == 7 ? "buttonSMSelected" : "buttonSM"}
+          onClick={() => setBpm(7)}
+        >
+          medium
+        </button>
+        <button
+          disabled={animate}
+          className={bpm == 4 ? "buttonSMSelected" : "buttonSM"}
+          onClick={() => setBpm(4)}
+        >
+          fast
+        </button>
       </div>
       <svg
         viewBox="0 0 242.5 1.2"
@@ -57,7 +63,7 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
             ? "lineMoving7"
             : animate && bpm == 4
             ? "lineMoving4"
-            : "absolute h-auto opacity-0 "
+            : "absolute h-auto invisible "
         }
         xmlns="http://www.w3.org/2000/svg"
       >
