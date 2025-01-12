@@ -4,7 +4,11 @@ interface rowProps {
 }
 
 const Row: React.FC<rowProps> = ({ viewBox, children }) => {
-  return <svg viewBox={viewBox}>{children}</svg>;
+  return (
+    <svg className="w-[80%]" viewBox={viewBox}>
+      {children}
+    </svg>
+  );
 };
 
 export default Row;
