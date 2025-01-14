@@ -4,15 +4,11 @@
 
 html,
 body {
-  overflow: visible;
-  overscroll-behavior: contain;
   font-family: "carlmarx", sans-serif;
   font-weight: 400;
   font-style: normal;
-  min-height: 200%;
   margin: 0;
-  padding: 0;
-  bottom: -10%;
+  min-height: 100%;
   background: -webkit-linear-gradient(
     90deg,
     hsla(187, 54%, 27%, 1) 10%,
@@ -32,6 +28,12 @@ svg {
   stroke: #d97706;
 }
 
+@media (pointer: fine) {
+  .svgHoldSelected:hover {
+    opacity: 0.4;
+  }
+}
+
 .svgHoldNotSelected {
   cursor: pointer;
   transition-property: opacity;
@@ -39,8 +41,10 @@ svg {
   transition-duration: 150ms;
 }
 
-.svgHoldNotSelected:hover {
-  opacity: 0.4;
+@media (pointer: fine) {
+  .svgHoldNotSelected:hover {
+    opacity: 0.4;
+  }
 }
 
 .button {
@@ -148,6 +152,12 @@ svg {
   transition-duration: 150ms;
 }
 
+@media (pointer: fine) {
+  .buttonSMSelected:hover {
+    opacity: 0.4;
+  }
+}
+
 .buttonSMSelectedPlaying {
   background-color: #e8e9eb;
   opacity: 0.4;
@@ -166,12 +176,6 @@ svg {
   transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
-}
-
-@media (pointer: fine) {
-  .buttonSMSelected:hover {
-    opacity: 0.4;
-  }
 }
 
 @keyframes pulse {
