@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react";
-import playing from "./board";
 const useCollision = (callback: () => void, id: string) => {
   const triggeredHolds = useRef(new Set<string>());
 
@@ -61,7 +60,7 @@ const useCollision = (callback: () => void, id: string) => {
       cancelAnimationFrame(animationFrameId);
       triggeredHolds.current.clear();
     };
-  }, [callback, id, playing]);
+  }, [callback, id]);
 };
 
 export default useCollision;
