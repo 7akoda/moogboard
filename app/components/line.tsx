@@ -13,42 +13,61 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
     setTimeout(() => setAnimate(true), 0);
     setTimeout(
       () => setAnimate(false),
-      bpm === 10 ? 10000 : bpm === 7 ? 7000 : bpm === 4 ? 4000 : 10000
+      bpm === 10 ? 9999 : bpm === 7 ? 6999 : bpm === 4 ? 3999 : 9999
     );
-    setPlaying(!playing);
   };
 
   return (
     <div className=" flex flex-col justify-start items-center ">
-      {/* <svg viewBox="2 6.8747 60 6">
-        <path
-          fill="#e8e9eb"
-          d="M 2 9.491 C 2 6 17 6 17 9.507 C 17 14 2 14 2 9.491"
-        >
-          {" "}
-        </path>
-      </svg> */}
-      <button disabled={animate} className="button" onClick={handleClick}>
+      {/* <button
+        disabled={animate}
+        className={animate ? "buttonPlaying" : "button"}
+        onClick={handleClick}
+      >
         play
       </button>
       <div className="flex flex-row ">
         <button
           disabled={animate}
-          className={bpm == 10 ? "buttonSMSelected" : "buttonSM"}
+          className={
+            bpm == 10 && animate
+              ? "buttonSMSelectedPlaying"
+              : bpm != 10 && animate
+              ? "buttonSMPlaying"
+              : bpm == 10 && !animate
+              ? "buttonSMSelected"
+              : "buttonSM"
+          }
           onClick={() => setBpm(10)}
         >
           slow
         </button>
         <button
           disabled={animate}
-          className={bpm == 7 ? "buttonSMSelected" : "buttonSM"}
+          className={
+            bpm == 7 && animate
+              ? "buttonSMSelectedPlaying"
+              : bpm != 7 && animate
+              ? "buttonSMPlaying"
+              : bpm == 7 && !animate
+              ? "buttonSMSelected"
+              : "buttonSM"
+          }
           onClick={() => setBpm(7)}
         >
           medium
         </button>
         <button
           disabled={animate}
-          className={bpm == 4 ? "buttonSMSelected" : "buttonSM"}
+          className={
+            bpm == 4 && animate
+              ? "buttonSMSelectedPlaying"
+              : bpm != 4 && animate
+              ? "buttonSMPlaying"
+              : bpm == 4 && !animate
+              ? "buttonSMSelected"
+              : "buttonSM"
+          }
           onClick={() => setBpm(4)}
         >
           fast
@@ -70,7 +89,7 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
         <g>
           <rect fill="#d97706" width="800" height="0.5" />
         </g>
-      </svg>
+      </svg> */}
     </div>
   );
 };
