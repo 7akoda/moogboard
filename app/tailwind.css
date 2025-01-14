@@ -4,31 +4,20 @@
 
 html,
 body {
+  overflow: visible;
   overscroll-behavior: contain;
   font-family: "carlmarx", sans-serif;
   font-weight: 400;
   font-style: normal;
-
+  min-height: 200%;
   margin: 0;
   padding: 0;
-
-  background: hsla(187, 54%, 27%, 1);
-  background: linear-gradient(
-    90deg,
-    hsla(187, 54%, 27%, 1) 0%,
-    hsla(0, 0%, 96%, 1) 100%
-  );
-  background: -moz-linear-gradient(
-    90deg,
-    hsla(187, 54%, 27%, 1) 0%,
-    hsla(0, 0%, 96%, 1) 100%
-  );
+  bottom: -10%;
   background: -webkit-linear-gradient(
     90deg,
-    hsla(187, 54%, 27%, 1) 0%,
+    hsla(187, 54%, 27%, 1) 10%,
     hsla(0, 0%, 96%, 1) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#1F6069", endColorstr="#F6F6F6", GradientType=1);
 }
 
 svg {
@@ -72,14 +61,34 @@ svg {
   transition-duration: 150ms;
 }
 
-.button:hover {
+@media (pointer: fine) {
+  .button:hover {
+    opacity: 0.4;
+  }
+}
+
+.buttonPlaying {
+  background-color: #e8e9eb;
   opacity: 0.4;
+  width: 152px;
+  font-weight: 800;
+  color: #313638;
+  padding-left: 8px;
+  padding-right: 8px;
+  border-width: 1px;
+  border-radius: 0.375rem;
+  line-height: 26px;
+  font-size: 18px;
+  z-index: 10;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
 .buttonSM {
   background-color: #e8e9eb;
   width: 49px;
-
   color: #313638;
   margin-top: 3px;
   margin-left: 1px;
@@ -94,6 +103,32 @@ svg {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+
+.buttonSMPlaying {
+  background-color: #e8e9eb;
+  opacity: 0.4;
+  width: 49px;
+  color: #313638;
+  margin-top: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-width: 2.5px;
+  border-radius: 9px;
+  line-height: 26px;
+  font-size: 10px;
+  z-index: 10;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@media (pointer: fine) {
+  .buttonSM:hover {
+    opacity: 0.4;
+  }
+}
+
 .buttonSMSelected {
   background-color: #e8e9eb;
   width: 49px;
@@ -113,12 +148,30 @@ svg {
   transition-duration: 150ms;
 }
 
-.buttonSM:hover {
+.buttonSMSelectedPlaying {
+  background-color: #e8e9eb;
   opacity: 0.4;
+  width: 49px;
+  color: #313638;
+  margin-top: 3px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border-width: 2.5px;
+  border-radius: 9px;
+  border-color: #d97706;
+  line-height: 26px;
+  font-size: 10px;
+  z-index: 10;
+  cursor: pointer;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
-.buttonSMSelected:hover {
-  opacity: 0.4;
+@media (pointer: fine) {
+  .buttonSMSelected:hover {
+    opacity: 0.4;
+  }
 }
 
 @keyframes pulse {
