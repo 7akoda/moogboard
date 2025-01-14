@@ -22,7 +22,7 @@ const Mooglogo = () => {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 278.67 296.25"
-        className="flex flex-col justify-center max-h-[70vh] fixed z-0"
+        className="flex flex-col justify-center max-h-[890px] fixed z-0"
       >
         <defs>
           <style>{`
