@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
+html {
+  background: #20616a;
+}
+
 body {
+  overflow: visible;
+  overscroll-behavior: contain;
   font-family: "carlmarx", sans-serif;
   font-weight: 400;
   font-style: normal;
+  padding: 0;
   margin: 0;
-  min-height: 100%;
-  background: -webkit-linear-gradient(
-    90deg,
-    hsla(187, 54%, 27%, 1) 10%,
-    hsla(0, 0%, 96%, 1) 100%
-  );
+  min-height: 200dvh;
+  background: -webkit-linear-gradient(90deg, #20616a 0%, #f5f5f5 100%);
 }
 
 svg {
