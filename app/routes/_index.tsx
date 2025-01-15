@@ -12,7 +12,7 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col items-center ">
         <div className="flex flex-col w-full h-[100dvh] justify-center items-center">
           <Mooglogo></Mooglogo>
         </div>
