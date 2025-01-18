@@ -1,7 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import Board from "../components/board";
 import Mooglogo from "../components/icons/Board/logos/moogboardlogo";
-
+import PopUp from "~/components/popUp";
 export const meta: MetaFunction = () => {
   return [
     { title: "MoogBoard" },
@@ -18,6 +18,7 @@ export default function Index() {
         </div>
         <div className="flex flex-col justify-center items-center w-screen h-[100dvh] max-w-[750px]">
           <Board></Board>
+          <PopUp></PopUp>
         </div>
       </div>
     </>
