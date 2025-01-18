@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  background: #20616a;
-}
-
 body {
   overflow: visible;
   overscroll-behavior: contain;
@@ -21,7 +17,7 @@ body {
 svg {
   overflow-x: visible;
   overflow-y: visible;
-  z-index: 8;
+  z-index: 20;
 }
 
 .svgHoldSelected {
@@ -187,24 +183,24 @@ svg {
 }
 
 .lineMoving10 {
-  width: 27vw;
-  height: auto;
+  max-width: 750px;
+
   position: absolute;
   overflow: hidden;
   animation: moveUp linear 10s;
 }
 
 .lineMoving7 {
-  width: 27vw;
-  height: auto;
+  max-width: 1000px;
+
   position: absolute;
   overflow: hidden;
   animation: moveUp linear 7s;
 }
 
 .lineMoving4 {
-  width: 27vw;
-  height: auto;
+  max-width: 750px;
+
   position: absolute;
   overflow: hidden;
   animation: moveUp linear 4s;
