@@ -27,14 +27,7 @@ const Hold: React.FC<HoldProps> = ({
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
     setSelected(!selected);
-    const playAudio = async () => {
-      try {
-        await Tone.start(); // or Tone.start()
-        console.log("Audio is playing on mobile!");
-      } catch (err) {
-        console.error("Audio playback failed:", err);
-      }
-    };
+    console.log(window.scrollY);
   };
 
   const playTone = () => {
