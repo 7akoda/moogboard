@@ -7,8 +7,6 @@ import Specialhold from "./specialhold";
 import Line from "../components/line";
 
 const Board = () => {
-  const [playing, setPlaying] = useState<boolean>(false);
-
   return (
     <>
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
@@ -1508,7 +1506,6 @@ const Board = () => {
           d="M233.724 311.008c-.221-.296.037-.429.337-.469 1.255-.167 2.559-.715 3.304-1.428.354-.324.489-.269.785-.169 1.142.41 2.122.378 2.946.466.959.106.359.571.42.946.166 1.093-.325 2.188-2.357 3.472-1.93 1.192-4.431-1.519-5.435-2.818"
         />
       </Specialrow>
-      <Line playing={playing} setPlaying={setPlaying}></Line>
     </>
   );
 };
