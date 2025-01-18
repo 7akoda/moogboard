@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-interface lineProps {
-  playing: boolean;
-  setPlaying: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
+const Line = ({}) => {
   const [animate, setAnimate] = useState(false);
   const [bpm, setBpm] = useState(7);
 
@@ -19,7 +14,7 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
 
   return (
     <div className=" flex flex-col justify-start items-center ">
-      {/* <button
+      <button
         disabled={animate}
         className={animate ? "buttonPlaying" : "button"}
         onClick={handleClick}
@@ -87,9 +82,9 @@ const Line: React.FC<lineProps> = ({ playing, setPlaying }) => {
         xmlns="http://www.w3.org/2000/svg"
       >
         <g>
-          <rect fill="#d97706" width="800" height="0.5" />
+          <rect fill="#d97706" className="w-[100%] h-[0.5px]" />
         </g>
-      </svg> */}
+      </svg>
     </div>
   );
 };
