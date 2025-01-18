@@ -6,10 +6,30 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import "./tailwind.css";
+import { useEffect, useState } from "react";
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [scrollClass, setScrollClass] = useState("bg-[#f5f5f5]");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      console.log(window.scrollY);
+      if (window.scrollY < 12) {
+        setScrollClass("bg-[#f5f5f5]");
+      } else {
+        setScrollClass("bg-[#2F6C74]");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   return (
-    <html lang="en">
+    <html lang="en" className={scrollClass}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
