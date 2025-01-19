@@ -27,7 +27,6 @@ const Hold: React.FC<HoldProps> = ({
 
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
     setSelected(!selected);
-    console.log(window.scrollY);
   };
 
   const playTone = () => {
