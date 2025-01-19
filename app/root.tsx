@@ -17,7 +17,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
       if (window.scrollY < 12) {
         setScrollClass("bg-[#f5f5f5]");
       } else {
-        setScrollClass("bg-[#2F6C74]");
+        setScrollClass("bg-[#26656e]");
       }
     };
     window.addEventListener("scroll", handleScroll);
