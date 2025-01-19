@@ -1,11 +1,26 @@
 import { Drawer } from "vaul";
-import React, { useState } from "react";
-import Line from "./line";
+import React, { useState, useEffect } from "react";
+import { BpmControl } from "./bpm";
 import MooglogoPopUp from "./icons/Board/logos/moogboardlogoPopUp";
-const PopUp = () => {
+
+interface popUpProps {
+  animate: boolean;
+  handleClick: () => void;
+  bpm: number;
+  setBpm: React.Dispatch<React.SetStateAction<number>>;
+}
+
+const PopUp: React.FC<popUpProps> = ({ handleClick, animate, bpm, setBpm }) => {
   const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    if (animate) {
+      setOpen(false);
+    }
+  }, [animate]);
+
   return (
-    <>
+    <div className="flex flex-col justify-self-center">
       <MooglogoPopUp></MooglogoPopUp>
       <Drawer.Root open={open} onOpenChange={setOpen}>
         <Drawer.Trigger className="relative flex h-10 flex-shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-4 text-sm font-medium shadow-sm transition-all hover:bg-[#FAFAFA] dark:bg-[#161615] dark:hover:bg-[#1A1A19] dark:text-white">
@@ -15,7 +30,7 @@ const PopUp = () => {
           <Drawer.Overlay className="z-40 fixed inset-0 bg-black/40" />
           <Drawer.Content
             aria-describedby="controls for application"
-            className="z-40 max-w-[750px] bg-gray-100 flex flex-col justify-self-center rounded-t-[10px] mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none"
+            className="z-40 bg-gray-100 flex flex-col rounded-t-[10px] mt-24 h-fit fixed bottom-0 left-0 right-0 outline-none"
           >
             <div className="p-4 bg-white rounded-t-[10px] flex-1">
               <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 " />
@@ -23,7 +38,12 @@ const PopUp = () => {
                 <Drawer.Title className="font-medium mb-12 text-gray-900">
                   MoogBoard by 7akoda
                 </Drawer.Title>
-                <Line></Line>
+                <BpmControl
+                  handleClick={handleClick}
+                  animate={animate}
+                  bpm={bpm}
+                  setBpm={setBpm}
+                ></BpmControl>
               </div>
             </div>
             <div className="p-4 bg-gray-100 border-t border-gray-200 mt-auto">
@@ -79,7 +99,7 @@ const PopUp = () => {
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>
-    </>
+    </div>
   );
 };
 
