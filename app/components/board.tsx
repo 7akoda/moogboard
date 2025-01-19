@@ -4,7 +4,6 @@ import Hold from "./hold";
 import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
-import Line from "../components/line";
 
 const Board = () => {
   return (
