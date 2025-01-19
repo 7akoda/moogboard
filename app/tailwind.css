@@ -46,7 +46,7 @@ svg {
 }
 
 .button {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   width: 152px;
   font-weight: 800;
   color: #313638;
@@ -70,7 +70,7 @@ svg {
 }
 
 .buttonPlaying {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   opacity: 0.4;
   width: 152px;
   font-weight: 800;
@@ -89,7 +89,7 @@ svg {
 }
 
 .buttonSM {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   width: 49px;
   color: #313638;
   margin-top: 3px;
@@ -107,7 +107,7 @@ svg {
 }
 
 .buttonSMPlaying {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   opacity: 0.4;
   width: 49px;
   color: #313638;
@@ -132,7 +132,7 @@ svg {
 }
 
 .buttonSMSelected {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   width: 49px;
   color: #313638;
   margin-top: 3px;
@@ -157,7 +157,7 @@ svg {
 }
 
 .buttonSMSelectedPlaying {
-  background-color: #e8e9eb;
+  background-color: #f3f4f6;
   opacity: 0.4;
   width: 49px;
   color: #313638;
