@@ -1,7 +1,6 @@
 import { Drawer } from "vaul";
 import React, { useState, useEffect } from "react";
 import { BpmControl } from "./bpm";
-import MooglogoPopUp from "./icons/Board/logos/moogboardlogoPopUp";
 
 interface popUpProps {
   animate: boolean;
@@ -21,7 +20,6 @@ const PopUp: React.FC<popUpProps> = ({ handleClick, animate, bpm, setBpm }) => {
 
   return (
     <div className="flex flex-col justify-self-center">
-      <MooglogoPopUp></MooglogoPopUp>
       <Drawer.Root open={open} onOpenChange={setOpen}>
         <Drawer.Trigger className="relative flex h-10 flex-shrink-0 items-center justify-center gap-2 overflow-hidden rounded-full bg-white px-4 text-sm font-medium shadow-sm transition-all hover:bg-[#FAFAFA] dark:bg-[#161615] dark:hover:bg-[#1A1A19] dark:text-white">
           Open Drawer
