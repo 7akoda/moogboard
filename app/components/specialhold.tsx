@@ -30,36 +30,40 @@ const Hold: React.FC<HoldProps> = ({
   };
 
   const playTone = () => {
-    const reverb = new Tone.Reverb(6).toDestination();
+    const reverb = new Tone.Reverb(12).toDestination();
     const compressor = new Tone.Compressor({
       threshold: -18,
       ratio: 4,
       attack: 0.01,
       release: 0.1,
     });
+    const fadeOutDuration = 1.5;
 
     if (SynthProp == Tone.Synth) {
       const synth = new Tone.PolySynth(Tone.Synth, {
         oscillator: {
-          type: "pulse",
-          width: 0.4,
+          type: "square",
         },
         envelope: {
-          attack: 0.02,
-          decay: 0.15,
-          sustain: 0.3,
-          release: 1.2,
+          attack: 0.3,
+          decay: 2,
+          sustain: 0.7,
+          release: 3,
         },
       }).toDestination();
 
-      const pulseFilter = new Tone.Filter({
-        type: "bandpass",
-        frequency: 1000,
+      const filter = new Tone.Filter({
+        type: "highpass",
+        frequency: 400,
+        rolloff: -12,
         Q: 2,
       }).toDestination();
-      synth.chain(pulseFilter, reverb, compressor);
-      synth.triggerAttackRelease(note, "10n");
-      setTimeout(() => synth.dispose(), 1200);
+
+      synth.chain(filter, reverb, compressor);
+      synth.volume.value = -9;
+      synth.triggerAttackRelease(note, "12n");
+      synth.volume.rampTo(-Infinity, fadeOutDuration);
+      setTimeout(() => synth.dispose(), fadeOutDuration * 1000);
     }
     if (SynthProp == Tone.AMSynth) {
       const synth = new Tone.PolySynth(Tone.Synth, {
@@ -82,20 +86,21 @@ const Hold: React.FC<HoldProps> = ({
       }).toDestination();
 
       synth.chain(filter, reverb, compressor);
-      synth.volume.value = +14;
-      synth.triggerAttackRelease(note, "10n");
-      setTimeout(() => synth.dispose(), 1200);
+      synth.volume.value = +11;
+      synth.triggerAttackRelease(note, "12n");
+      synth.volume.rampTo(-Infinity, fadeOutDuration);
+      setTimeout(() => synth.dispose(), fadeOutDuration * 1000);
     }
     if (SynthProp == Tone.FMSynth) {
       const synth = new Tone.PolySynth(Tone.Synth, {
         oscillator: {
-          type: "sawtooth",
+          type: "sine",
         },
         envelope: {
-          attack: 0.05,
+          attack: 0,
           decay: 0.3,
-          sustain: 0.4,
-          release: 2,
+          sustain: 1,
+          release: 3,
         },
       }).toDestination();
 
@@ -107,34 +112,39 @@ const Hold: React.FC<HoldProps> = ({
       }).toDestination();
 
       synth.chain(filter, reverb, compressor);
-      synth.triggerAttackRelease(note, "10n");
-      setTimeout(() => synth.dispose(), 1200);
+      synth.volume.value = -9;
+      synth.triggerAttackRelease(note, "12n");
+      synth.volume.rampTo(-Infinity, fadeOutDuration);
+      setTimeout(() => synth.dispose(), fadeOutDuration * 1000);
     }
     if (SynthProp == Tone.MonoSynth) {
       const synth = new Tone.PolySynth(Tone.Synth, {
         oscillator: {
-          type: "square",
+          type: "sawtooth",
         },
         envelope: {
-          attack: 0.01,
-          decay: 0.1,
-          sustain: 0.1,
-          release: 1.5,
+          attack: 0.2,
+          decay: 0.2,
+          sustain: 0.2,
+          release: 0.5,
         },
       }).toDestination();
 
       const filter = new Tone.Filter({
         type: "lowpass",
-        frequency: 1200,
+        frequency: 600,
         rolloff: -12,
         Q: 1,
       }).toDestination();
 
       synth.chain(filter, reverb, compressor);
-      synth.triggerAttackRelease(note, "10n");
-      setTimeout(() => synth.dispose(), 1200);
+      synth.volume.value = -9;
+      synth.triggerAttackRelease(note, "12n");
+      synth.volume.rampTo(-Infinity, fadeOutDuration);
+      setTimeout(() => synth.dispose(), fadeOutDuration * 1000);
     }
   };
+
   useCollision(playTone, id);
 
   return (
