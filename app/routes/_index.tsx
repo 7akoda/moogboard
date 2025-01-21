@@ -1,6 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
-import Board from "../components/board";
-import Mooglogo from "../components/icons/Board/logos/moogboardlogo";
+import Board from "../components/Board/board";
+import Mooglogo from "../components/Logos/moogboardlogo";
 import PopUp from "~/components/popUp";
 import { useState } from "react";
 import { Line } from "../components/line";
@@ -38,12 +38,6 @@ export default function Index() {
             animate={animate}
             handleClick={handleClick}
           ></PopUp>
-          <PopOut
-            bpm={bpm}
-            setBpm={setBpm}
-            animate={animate}
-            handleClick={handleClick}
-          ></PopOut>
         </div>
       </div>
     </>
