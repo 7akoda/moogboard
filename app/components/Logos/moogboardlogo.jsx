@@ -1,28 +1,29 @@
 import * as React from "react";
-
+import { useEffect } from "react";
 const Mooglogo = () => {
-  if (typeof document !== "undefined") {
-    const svgElement = document.querySelector("svg");
-    window.onbeforeunload = function () {
-      window.scrollTo(0, 0);
-    };
-    const updateScale = () => {
-      const scrollHeight = document.body.scrollHeight - window.innerHeight;
-      const scrollPercent = window.scrollY / scrollHeight;
-      const clampedPercent = Math.min(Math.max(scrollPercent, 0), 1);
-      svgElement.style.transform = `scale(${1 - clampedPercent * 0.3})`;
-    };
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      const svgElement = document.querySelector("svg");
+      window.onbeforeunload = function () {
+        window.scrollTo(0, 0);
+      };
+      const updateScale = () => {
+        const scrollHeight = document.body.scrollHeight - window.innerHeight;
+        const scrollPercent = window.scrollY / scrollHeight;
+        const clampedPercent = Math.min(Math.max(scrollPercent, 0), 1);
+        svgElement.style.transform = `scale(${1 - clampedPercent * 0.3})`;
+      };
 
-    window.addEventListener("scroll", updateScale);
-  }
-
+      window.addEventListener("scroll", updateScale);
+    }
+  }, []);
   return (
     //multiple svgs with slight viewbox changes to account for discrepancies with hand modelled font in regards to overlapping opacity
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 278.67 296.25"
-        className="flex flex-col justify-center max-h-[890px] fixed z-40-"
+        className="flex flex-col justify-center max-h-[75dvh] fixed z-0"
       >
         <defs>
           <style>{`
