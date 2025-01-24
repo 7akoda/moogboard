@@ -17,12 +17,6 @@ export const PopOut: React.FC<popOutProps> = ({
 }) => {
   const [open, setOpen] = React.useState(false);
 
-  useEffect(() => {
-    if (animate) {
-      setOpen(false);
-    }
-  }, [animate]);
-
   return (
     <>
       <Drawer.Root open={open} onOpenChange={setOpen} direction="right">
@@ -32,6 +26,7 @@ export const PopOut: React.FC<popOutProps> = ({
         <Drawer.Portal>
           <Drawer.Overlay className="fixed inset-0 bg-black/40" />
           <Drawer.Content
+            aria-describedby="controls for application"
             className="right-2 top-2 bottom-2  fixed z-10 outline-none w-[310px] flex"
             // The gap between the edge of the screen and the drawer is 8px in this case.
             style={
@@ -41,16 +36,18 @@ export const PopOut: React.FC<popOutProps> = ({
             }
           >
             <div className="bg-zinc-50 p-5 h-full w-full grow flex flex-col rounded-[16px]">
-              <div className="max-w-[100px]">
+              <div className="max-w-[300px]">
                 <Drawer.Title className="  justify-self-start font-medium mb-12 text-gray-900">
                   MoogBoard by 7akoda
                 </Drawer.Title>
-                <BpmControl
-                  handleClick={handleClick}
-                  animate={animate}
-                  bpm={bpm}
-                  setBpm={setBpm}
-                ></BpmControl>
+                <div className="flex flex-row justify-self-center ">
+                  <BpmControl
+                    handleClick={handleClick}
+                    animate={animate}
+                    bpm={bpm}
+                    setBpm={setBpm}
+                  ></BpmControl>
+                </div>
                 <div className="mt-[81.3dvh] p-4 bg-gray-100 border-t border-gray-200 rounded-[16px] ">
                   <div className=" pt-100 flex flex-row justify-end align-bottom gap-6 max-w-[100px] mx-auto">
                     <a
