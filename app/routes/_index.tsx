@@ -5,7 +5,7 @@ import MooglogoSmall from "../components/Logos/moogboardlogoSmall";
 import PopUp from "~/components/popUp";
 import { useState, useEffect } from "react";
 import { Line } from "../components/line";
-import { PopOut } from "~/components/popOut";
+import { SideBar } from "~/components/sideBar";
 export const meta: MetaFunction = () => {
   return [
     { title: "MoogBoard" },
@@ -52,7 +52,7 @@ export default function Index() {
               handleClick={handleClick}
             />
           ) : (
-            <PopOut
+            <SideBar
               bpm={bpm}
               setBpm={setBpm}
               animate={animate}
