@@ -5,10 +5,7 @@ interface rowProps {
 
 const Row: React.FC<rowProps> = ({ viewBox, children }) => {
   return (
-    <svg
-      className="max-w-[80%] max-h-[5.55555555555555555555555555555555555%]"
-      viewBox={viewBox}
-    >
+    <svg className="max-w-[80dvw] max-h-[5dvh]" viewBox={viewBox}>
       {children}
     </svg>
   );
