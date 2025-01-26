@@ -60,7 +60,7 @@ const Hold: React.FC<HoldProps> = ({
       }).toDestination();
 
       synth.chain(filter, reverb, compressor);
-      synth.volume.value = -9;
+      synth.volume.value = -11;
       synth.triggerAttackRelease(note, "12n");
       synth.volume.rampTo(-Infinity, fadeOutDuration);
       setTimeout(() => synth.dispose(), fadeOutDuration * 1000);
