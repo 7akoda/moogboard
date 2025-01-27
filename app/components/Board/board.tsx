@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as Tone from "tone";
 import Hold from "./hold";
 import Row from "./row";
 import Specialrow from "./specialrow";
 import Specialhold from "./specialhold";
-
+import { fetchClimbById } from "~/lib/climbService";
 const Board = () => {
+  useEffect(() => {
+    async function getClimb() {
+      try {
+        const climb = await fetchClimbById(1);
+        console.log(climb);
+      } catch (error) {
+        console.error("Error fetching climb:", error);
+      }
+    }
+    getClimb();
+  }, []);
+
   return (
     <>
       <Row viewBox="-2.67425 -11.8885 242.5 24.57">
