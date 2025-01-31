@@ -2,7 +2,7 @@ import * as Tone from "tone";
 
 export const holdData6 = [
   {
-    id: "56",
+    id: "6A",
     viewBox: "1.4 207.8 242.5 24.57",
     SynthProp: Tone.AMSynth,
     note: ["G2", "B2", "D3", "F3"],
@@ -11,7 +11,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "57",
+    id: "6B",
     SynthProp: Tone.Synth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8ceb8",
@@ -19,7 +19,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "58",
+    id: "6C",
     SynthProp: Tone.Synth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8ceb8",
@@ -27,7 +27,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "59",
+    id: "6D",
     SynthProp: Tone.MonoSynth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#ffe57f",
@@ -35,7 +35,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "60",
+    id: "6E",
     SynthProp: Tone.Synth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8ceb8",
@@ -43,7 +43,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "61",
+    id: "6F",
     SynthProp: Tone.FMSynth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#313638",
@@ -51,7 +51,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "62",
+    id: "6G",
     SynthProp: Tone.AMSynth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8e9eb",
@@ -59,7 +59,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "63",
+    id: "6H",
     SynthProp: Tone.Synth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8ceb8",
@@ -67,7 +67,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "64",
+    id: "6I",
     SynthProp: Tone.AMSynth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8e9eb",
@@ -75,7 +75,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "65",
+    id: "6J",
     SynthProp: Tone.AMSynth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8e9eb",
@@ -83,7 +83,7 @@ export const holdData6 = [
   },
   {
     viewBox: "1.4 207.8 242.5 24.57",
-    id: "66",
+    id: "6K",
     SynthProp: Tone.Synth,
     note: ["G2", "B2", "D3", "F3"],
     fill: "#e8ceb8",
