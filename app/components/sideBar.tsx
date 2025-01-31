@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BpmControl } from "./bpm";
-
+import { Search } from "./Board/search";
 interface popOutProps {
   animate: boolean;
   handleClick: () => void;
@@ -30,6 +30,7 @@ export const SideBar: React.FC<popOutProps> = ({
                 setBpm={setBpm}
               ></BpmControl>
             </div>
+            <Search />
             <div className="mt-[81.3dvh] p-4 bg-gray-100 border-t border-gray-200 rounded-[16px] ">
               <div className=" pt-100 flex flex-row justify-end align-bottom gap-6 max-w-[100px] mx-auto">
                 <a
