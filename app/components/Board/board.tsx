@@ -33,7 +33,7 @@ const Board = () => {
   useEffect(() => {
     async function getClimb() {
       try {
-        const data = await fetchClimbById(1);
+        const data = await fetchClimbById(6);
         setClimb(data);
       } catch (error) {
         console.error("Error fetching climb:", error);
