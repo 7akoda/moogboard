@@ -11,7 +11,7 @@ interface HoldProps {
     | typeof Tone.FMSynth
     | typeof Tone.AMSynth
     | typeof Tone.MonoSynth;
-  active: boolean;
+  active: boolean | undefined;
   id: string;
   viewBox: string;
 }
