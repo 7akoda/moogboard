@@ -22,32 +22,38 @@ import { holdData3 } from "../../data/holdData3";
 import { holdData2 } from "../../data/holdData2";
 import { holdData1 } from "../../data/holdData1";
 
-const Board = () => {
-  interface Climb {
-    id: number;
-    name: string;
-    hold_ids: string[];
-  }
-  const [climb, setClimb] = useState<Climb | null>(null);
+interface Climb {
+  id: number;
+  name: string;
+  description: string;
+  grade: string;
+  hold_ids: string[];
+}
 
+interface BoardProps {
+  setClimb: React.Dispatch<React.SetStateAction<Climb | null>>;
+  climb: Climb | null;
+}
+
+const Board: React.FC<BoardProps> = ({ climb, setClimb }) => {
   useEffect(() => {
-    async function getClimb() {
+    async function getClimb(climb: Climb) {
       try {
-        const data = await fetchClimbById(6);
-        setClimb(data);
+        const data = await fetchClimbById(climb.id);
+        if (JSON.stringify(data) !== JSON.stringify(climb)) {
+          setClimb(data);
+          console.log("climbid from: board " + climb.id);
+        }
       } catch (error) {
         console.error("Error fetching climb:", error);
       }
     }
-    getClimb();
-  }, []);
+    if (!climb) {
+      return;
+    }
+    getClimb(climb);
+  }, [climb]);
 
-  if (!climb) {
-    return; // Or null to render nothing
-  }
-
-  // active={climb?.hold_ids.includes(Number("188"))}
-  console.log(climb);
   return (
     <>
       <Row viewBox="0 0 242.5 24.57 ">
