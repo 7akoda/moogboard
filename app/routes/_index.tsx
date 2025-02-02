@@ -13,10 +13,19 @@ export const meta: MetaFunction = () => {
   ];
 };
 
+interface Climb {
+  id: number;
+  name: string;
+  description: string;
+  grade: string;
+  hold_ids: string[];
+}
+
 export default function Index() {
   const [animate, setAnimate] = useState(false);
   const [bpm, setBpm] = useState(7);
   const [isClient, setIsClient] = useState(false);
+  const [climb, setClimb] = useState<Climb | null>(null);
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
     setTimeout(
@@ -34,6 +43,7 @@ export default function Index() {
   }
 
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  console.log(climb);
 
   return (
     <>
@@ -42,7 +52,7 @@ export default function Index() {
           <Mooglogo></Mooglogo>
         </div>
         <div className="flex flex-col justify-center items-center w-screen h-[100dvh] max-w-[750px] overflow-hidden">
-          <Board></Board>
+          <Board setClimb={setClimb} climb={climb}></Board>
           <Line bpm={bpm} animate={animate}></Line>
           {isMobile ? (
             <PopUp
@@ -53,6 +63,8 @@ export default function Index() {
             />
           ) : (
             <SideBar
+              climb={climb}
+              setClimb={setClimb}
               bpm={bpm}
               setBpm={setBpm}
               animate={animate}
