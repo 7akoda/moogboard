@@ -31,29 +31,10 @@ interface Climb {
 }
 
 interface BoardProps {
-  setClimb: React.Dispatch<React.SetStateAction<Climb | null>>;
   climb: Climb | null;
 }
 
-const Board: React.FC<BoardProps> = ({ climb, setClimb }) => {
-  useEffect(() => {
-    async function getClimb(climb: Climb) {
-      try {
-        const data = await fetchClimbById(climb.id);
-        if (JSON.stringify(data) !== JSON.stringify(climb)) {
-          setClimb(data);
-          console.log("climbid from: board " + climb.id);
-        }
-      } catch (error) {
-        console.error("Error fetching climb:", error);
-      }
-    }
-    if (!climb) {
-      return;
-    }
-    getClimb(climb);
-  }, [climb]);
-
+const Board: React.FC<BoardProps> = ({ climb }) => {
   return (
     <>
       <Row viewBox="0 0 242.5 24.57 ">
