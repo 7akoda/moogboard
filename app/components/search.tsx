@@ -32,17 +32,19 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
   const handleRowClick = async (climb: Climb) => {
     const data = await fetchClimbById(climb.id);
     setClimb(data);
-    console.log("climbid from: search " + climb.id);
+    console.log("climb from search:", JSON.stringify(data));
   };
 
   return (
-    <div className="">
+    <div className="flex flex-col">
       <input
+        className="flex flex-row w-full mt-3"
         type="text"
         placeholder="Search climbs..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
+
       <table className="flex flex-col pt-6">
         <thead>
           <tr className="flex flex-row justify-between">
@@ -53,21 +55,22 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
 
         <tbody>
           {climbs
-            ?.filter((climb) =>
-              climb.name.toLowerCase().includes(searchTerm.toLowerCase())
+            ?.filter((c) =>
+              c.name.toLowerCase().includes(searchTerm.toLowerCase())
             )
-            .map((climb) => (
+            .map((c) => (
               <tr
-                className="flex flex-row justify-between"
-                key={climb.id}
+                key={c.id}
+                className={`flex flex-row justify-between text-lg cursor-pointer p-2 rounded-md ${
+                  climb?.id === c.id ? "bg-gray-200" : "hover:bg-gray-100"
+                }`}
                 role="row"
                 tabIndex={0}
-                onKeyDown={(e) => e.key === "Enter" && handleRowClick(climb)}
-                onClick={() => handleRowClick(climb)}
-                style={{ cursor: "pointer" }}
+                onKeyDown={(e) => e.key === "Enter" && handleRowClick(c)}
+                onClick={() => handleRowClick(c)}
               >
-                <td>{climb.name}</td>
-                <td>{climb.grade}</td>
+                <td>{c.name}</td>
+                <td>{c.grade}</td>
               </tr>
             )) ?? (
             <tr>
