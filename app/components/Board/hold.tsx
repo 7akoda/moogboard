@@ -30,11 +30,10 @@ const Hold: React.FC<HoldProps> = ({
   const handleClick: React.MouseEventHandler<SVGSVGElement> = async () => {
     setSelected(!selected);
   };
+
   useEffect(() => {
-    if (active) {
-      setSelected(true);
-    }
-  }, []);
+    setSelected(!!active);
+  }, [active]);
 
   const playTone = () => {
     const reverb = new Tone.Reverb(12).toDestination();
