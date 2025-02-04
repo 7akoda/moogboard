@@ -7,6 +7,7 @@ body {
   overscroll-behavior: contain;
   font-family: "carlmarx", sans-serif;
   font-weight: 400;
+  font-size: 15pt;
   font-style: normal;
   padding: 0;
   margin: 0;
@@ -19,7 +20,9 @@ svg {
   overflow-y: visible;
   z-index: 20;
 }
-
+::selection {
+  background: #e8ceb8;
+}
 .svgHoldSelected {
   cursor: pointer;
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
@@ -47,7 +50,7 @@ svg {
 
 .button {
   background-color: #f3f4f6;
-  width: 152px;
+  width: 198px;
   font-weight: 800;
   color: #313638;
   padding-left: 8px;
@@ -55,7 +58,7 @@ svg {
   border-width: 1px;
   border-radius: 0.375rem;
   line-height: 26px;
-  font-size: 18px;
+  font-size: 15pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
@@ -72,7 +75,7 @@ svg {
 .buttonPlaying {
   background-color: #f3f4f6;
   opacity: 0.4;
-  width: 152px;
+  width: 198px;
   font-weight: 800;
   color: #313638;
   padding-left: 8px;
@@ -80,7 +83,7 @@ svg {
   border-width: 1px;
   border-radius: 0.375rem;
   line-height: 26px;
-  font-size: 18px;
+  font-size: 15pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
@@ -90,7 +93,7 @@ svg {
 
 .buttonSM {
   background-color: #f3f4f6;
-  width: 49px;
+  width: 65px;
   color: #313638;
   margin-top: 3px;
   margin-left: 1px;
@@ -98,7 +101,7 @@ svg {
   border-width: 2.5px;
   border-radius: 9px;
   line-height: 26px;
-  font-size: 10px;
+  font-size: 11pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
@@ -109,7 +112,7 @@ svg {
 .buttonSMPlaying {
   background-color: #f3f4f6;
   opacity: 0.4;
-  width: 49px;
+  width: 65px;
   color: #313638;
   margin-top: 3px;
   margin-left: 1px;
@@ -117,7 +120,7 @@ svg {
   border-width: 2.5px;
   border-radius: 9px;
   line-height: 26px;
-  font-size: 10px;
+  font-size: 11pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
@@ -133,7 +136,7 @@ svg {
 
 .buttonSMSelected {
   background-color: #f3f4f6;
-  width: 49px;
+  width: 65px;
   color: #313638;
   margin-top: 3px;
   margin-left: 1px;
@@ -142,7 +145,7 @@ svg {
   border-radius: 9px;
   border-color: #d97706;
   line-height: 26px;
-  font-size: 10px;
+  font-size: 11pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
@@ -159,7 +162,7 @@ svg {
 .buttonSMSelectedPlaying {
   background-color: #f3f4f6;
   opacity: 0.4;
-  width: 49px;
+  width: 65px;
   color: #313638;
   margin-top: 3px;
   margin-left: 1px;
@@ -168,7 +171,7 @@ svg {
   border-radius: 9px;
   border-color: #d97706;
   line-height: 26px;
-  font-size: 10px;
+  font-size: 11pt;
   z-index: 10;
   cursor: pointer;
   transition-property: opacity;
