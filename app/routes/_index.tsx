@@ -43,7 +43,6 @@ export default function Index() {
   }
 
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-  console.log(climb);
 
   return (
     <>
@@ -51,8 +50,8 @@ export default function Index() {
         <div className="flex flex-col w-full h-[100dvh] justify-center items-center">
           <Mooglogo></Mooglogo>
         </div>
-        <div className="flex flex-col justify-center items-center w-screen h-[100dvh] max-w-[750px] overflow-hidden">
-          <Board setClimb={setClimb} climb={climb}></Board>
+        <div className="flex flex-col justify-center items-center w-full h-[100dvh] overflow-hidden">
+          <Board climb={climb}></Board>
           <Line bpm={bpm} animate={animate}></Line>
           {isMobile ? (
             <PopUp
