@@ -1,6 +1,8 @@
 import { Drawer } from "vaul";
 import React, { useState, useEffect } from "react";
 import { BpmControl } from "./bpm";
+import { CollectionLogo } from "./Logos/collectionLogo";
+import { PlayLogo } from "./Logos/playLogo";
 
 interface popUpProps {
   animate: boolean;
@@ -20,32 +22,18 @@ const PopUp: React.FC<popUpProps> = ({ handleClick, animate, bpm, setBpm }) => {
 
   return (
     <>
-      <div className="flex flex-col justify-self-center">
+      <div className="flex flex-col justify-self-center justify-items-center">
         <Drawer.Root open={open} onOpenChange={setOpen}>
-          <Drawer.Trigger className=" m-6 relative flex h-7 flex-shrink-0 items-center justify-center gap-8 overflow-hidden rounded-full px-4 text-sm font-medium shadow-sm transition-all  bg-[#313638]">
+          <Drawer.Trigger className="absolute left-[38dvw] overflow-hidden rounded-md transition-all  ">
             <svg
-              width="20px"
-              height="20px"
-              viewBox="10 0 24 24"
-              fill="#e8e9eb"
+              width="50px"
+              height="50px"
+              viewBox="-20 0 76 76"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M6.46967 10.0303C6.17678 9.73744 6.17678 9.26256 6.46967 8.96967L11.4697 3.96967C11.7626 3.67678 12.2374 3.67678 12.5303 3.96967L17.5303 8.96967C17.8232 9.26256 17.8232 9.73744 17.5303 10.0303C17.2374 10.3232 16.7626 10.3232 16.4697 10.0303L12.75 6.31066L12.75 14.5C12.75 15.2133 12.9702 16.3 13.6087 17.1868C14.2196 18.0353 15.2444 18.75 17 18.75C17.4142 18.75 17.75 19.0858 17.75 19.5C17.75 19.9142 17.4142 20.25 17 20.25C14.7556 20.25 13.2804 19.298 12.3913 18.0632C11.5298 16.8667 11.25 15.4534 11.25 14.5L11.25 6.31066L7.53033 10.0303C7.23744 10.3232 6.76256 10.3232 6.46967 10.0303Z"
                 fill="#e8e9eb"
-              />
-            </svg>
-
-            <svg
-              width="20px"
-              height="20px"
-              viewBox="-10 0 24 24"
-              fill="#e8e9eb"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M17.5303 10.0303C17.8232 9.73744 17.8232 9.26256 17.5303 8.96967L12.5303 3.96967C12.2374 3.67678 11.7626 3.67678 11.4697 3.96967L6.46967 8.96967C6.17678 9.26256 6.17678 9.73744 6.46967 10.0303C6.76256 10.3232 7.23744 10.3232 7.53033 10.0303L11.25 6.31066L11.25 14.5C11.25 15.2133 11.0298 16.3 10.3913 17.1868C9.7804 18.0353 8.75556 18.75 7 18.75C6.58579 18.75 6.25 19.0858 6.25 19.5C6.25 19.9142 6.58579 20.25 7 20.25C9.24444 20.25 10.7196 19.298 11.6087 18.0632C12.4702 16.8667 12.75 15.4534 12.75 14.5L12.75 6.31066L16.4697 10.0303C16.7626 10.3232 17.2374 10.3232 17.5303 10.0303Z"
-                fill="#e8e9eb"
+                d="M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "
               />
             </svg>
           </Drawer.Trigger>
@@ -55,7 +43,7 @@ const PopUp: React.FC<popUpProps> = ({ handleClick, animate, bpm, setBpm }) => {
               <div className="p-4 bg-white rounded-t-[10px] flex-1">
                 <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 " />
                 <div className="max-w-[750px] mx-auto">
-                  <Drawer.Title className="font-medium mb-12 text-gray-900">
+                  <Drawer.Title className="font-medium mb-10 pt-2 text-gray-900">
                     MoogBoard by 7akoda
                   </Drawer.Title>
                   <BpmControl
