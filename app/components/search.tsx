@@ -45,7 +45,7 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <table className="flex flex-col pt-6">
+      <table className="flex flex-col pt-6 ">
         <thead>
           <tr className="flex flex-row justify-between">
             <th>Name</th>
