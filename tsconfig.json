@@ -6,7 +6,9 @@
     "**/.server/**/*.tsx",
     "**/.client/**/*.ts",
     "**/.client/**/*.tsx",
-    "app/components/synth.jsx"
+    "app/components/synth.jsx",
+    "app/components/Logos/playLogo.jsx",
+    "app/components/Logos/collectionLogo.jsx"
   ],
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ES2022"],
