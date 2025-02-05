@@ -6,6 +6,8 @@ import PopUp from "~/components/popUp";
 import { useState, useEffect } from "react";
 import { Line } from "../components/line";
 import { SideBar } from "~/components/sideBar";
+import PopUpSearch from "~/components/popUpSearch";
+import { BottomBar } from "~/components/bottomBar";
 export const meta: MetaFunction = () => {
   return [
     { title: "MoogBoard" },
@@ -54,11 +56,13 @@ export default function Index() {
           <Board climb={climb}></Board>
           <Line bpm={bpm} animate={animate}></Line>
           {isMobile ? (
-            <PopUp
+            <BottomBar
               bpm={bpm}
               setBpm={setBpm}
               animate={animate}
               handleClick={handleClick}
+              climb={climb}
+              setClimb={setClimb}
             />
           ) : (
             <SideBar
