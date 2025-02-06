@@ -1,8 +1,6 @@
 import { Drawer } from "vaul";
 import React, { useState, useEffect } from "react";
 import { BpmControl } from "./bpm";
-import { CollectionLogo } from "./Logos/collectionLogo";
-import { PlayLogo } from "./Logos/playLogo";
 
 interface popUpProps {
   animate: boolean;
