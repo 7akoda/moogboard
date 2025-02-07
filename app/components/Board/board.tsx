@@ -1,8 +1,5 @@
-import { useState, useEffect } from "react";
-import * as Tone from "tone";
 import Hold from "./hold";
 import Row from "./row";
-import { fetchClimbById } from "~/lib/climbService";
 import { holdData18 } from "../../data/holdData18";
 import { holdData17 } from "../../data/holdData17";
 import { holdData16 } from "../../data/holdData16";
