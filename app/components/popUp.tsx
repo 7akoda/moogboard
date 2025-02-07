@@ -20,18 +20,22 @@ const PopUp: React.FC<popUpProps> = ({ handleClick, animate, bpm, setBpm }) => {
 
   return (
     <>
-      <div className="flex flex-col justify-self-center justify-items-center">
+      <div className="flex flex-col justify-self-center justify-items-center z-20">
         <Drawer.Root open={open} onOpenChange={setOpen}>
-          <Drawer.Trigger className="absolute left-[38dvw] overflow-hidden rounded-md transition-all  ">
+          <Drawer.Trigger className="absolute -bottom-full left-1/2 -translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
-              width="50px"
-              height="50px"
-              viewBox="-20 0 76 76"
+              fill="#e8e9eb"
+              version="1.1"
               xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 80 80" // Adjusted viewBox to contain both shapes
+              className="w-[12dvw] h-[11dvh]"
             >
+              <path d="M40,80C17.944,80,0,62.056,0,40S17.944,0,40,0s40,17.944,40,40S62.056,80,40,80z" />
+
               <path
-                fill="#e8e9eb"
-                d="M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "
+                fill="#20616a"
+                transform="translate(0.5) scale(1.1)"
+                d="M30.0833,22.1667L50.6665,37.6043L50.6665,38.7918L30.0833,53.8333L30.0833,22.1667Z"
               />
             </svg>
           </Drawer.Trigger>
