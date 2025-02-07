@@ -2,11 +2,10 @@ import type { MetaFunction } from "@remix-run/node";
 import Board from "../components/Board/board";
 import Mooglogo from "../components/Logos/moogboardlogo";
 import MooglogoSmall from "../components/Logos/moogboardlogoSmall";
-import PopUp from "~/components/popUp";
 import { useState, useEffect } from "react";
 import { Line } from "../components/line";
 import { SideBar } from "~/components/sideBar";
-import PopUpSearch from "~/components/popUpSearch";
+
 import { BottomBar } from "~/components/bottomBar";
 export const meta: MetaFunction = () => {
   return [
