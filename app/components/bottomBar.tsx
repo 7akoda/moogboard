@@ -1,5 +1,6 @@
 import React from "react";
-
+import PopUp from "./popUp";
+import PopUpSearch from "./popUpSearch";
 interface Climb {
   id: number;
   name: string;
@@ -26,31 +27,40 @@ export const BottomBar: React.FC<bottomBarProps> = ({
   setClimb,
 }) => {
   return (
-    <svg
-      className="absolute top-[193.2dvh] w-[99dvw]"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="9.083 15.229 3.834 0.606"
-    >
-      <path
-        d="
-M 9.26 15.229
-C 9.083 15.229 9.019 15.368 9.144 15.569
-C 9.312 15.835 9.513 15.815 10 15.815
-L 11 15.815
-L 11 15.634
-C 10.681 15.631 10.698 15.229 10.488 15.229
-L 10.001 15.229
+    <>
+      <svg
+        className="absolute -bottom-full w-full z-10"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="9.083 15.229 3.834 0.48"
+      >
+        <path
+          d="
+M 9 15.229 
+L 9 15.815 
+L 11 15.815 
+L 11 15.634 
+C 10.681 15.631 10.698 15.229 10.488 15.229 
+L 10.001 15.229 
+L 9 15.229 
+L 9 15.815
 
-M 12.74 15.229
-C 12.917 15.229 12.981 15.368 12.856 15.569
-C 12.688 15.835 12.487 15.815 12 15.815
-L 11 15.815
-L 11 15.634
-C 11.319 15.631 11.302 15.229 11.512 15.229
-L 11.999 15.229
+M 13 15.229 
+L 13 15.815 
+L 11 15.815 
+L 11 15.634 
+C 11.319 15.631 11.302 15.229 11.512 15.229 
+L 11.999 15.229 
+L 13 15.229
 "
-        fill="#e8e9eb"
+          fill="#e8e9eb"
+        />
+      </svg>
+      <PopUp
+        animate={animate}
+        handleClick={handleClick}
+        bpm={bpm}
+        setBpm={setBpm}
       />
-    </svg>
+    </>
   );
 };
