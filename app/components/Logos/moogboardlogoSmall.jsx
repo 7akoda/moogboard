@@ -1,8 +1,5 @@
-import * as React from "react";
-
 const Mooglogo = () => {
   return (
-    //multiple svgs with slight viewbox changes to account for discrepancies with hand modelled font in regards to overlapping opacity
     <>
       <svg
         xmlns="http://www.w3.org/2000/svg"
