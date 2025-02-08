@@ -1,6 +1,8 @@
 import React from "react";
-import PopUp from "./popUp";
+import PopUpPlay from "./popUpPlay";
 import PopUpSearch from "./popUpSearch";
+import { PopUpInfo } from "./popUpInfo";
+
 interface Climb {
   id: number;
   name: string;
@@ -55,12 +57,14 @@ L 13 15.229
           fill="#e8e9eb"
         />
       </svg>
-      <PopUp
+      <PopUpPlay
         animate={animate}
         handleClick={handleClick}
         bpm={bpm}
         setBpm={setBpm}
       />
+      <PopUpSearch animate={animate} climb={climb} setClimb={setClimb} />
+      <PopUpInfo />
     </>
   );
 };
