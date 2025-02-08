@@ -1,5 +1,4 @@
 import { Drawer } from "vaul";
-import React, { useEffect } from "react";
 import { Search } from "./search";
 
 interface Climb {
@@ -12,39 +11,33 @@ interface Climb {
 
 interface popUpProps {
   animate: boolean;
-  handleClick: () => void;
+
   setClimb: React.Dispatch<React.SetStateAction<Climb | null>>;
   climb: Climb | null;
 }
 
-const PopUpSearch: React.FC<popUpProps> = ({
-  handleClick,
-  animate,
-  climb,
-  setClimb,
-}) => {
-  const [open, setOpen] = React.useState(false);
-
-  useEffect(() => {
-    if (animate) {
-      setOpen(false);
-    }
-  }, [animate]);
-
+const PopUpSearch: React.FC<popUpProps> = ({ animate, climb, setClimb }) => {
   return (
     <>
       <div className="flex flex-col justify-self-center">
-        <Drawer.Root open={open} onOpenChange={setOpen}>
-          <Drawer.Trigger className="absolute  left-[44dvw] overflow-hidden rounded-md px-4  transition-all">
-            <svg width="50px" height="50px" viewBox="0 0 76 76">
+        <Drawer.Root>
+          <Drawer.Trigger className=" z-40 absolute -bottom-full left-[22%] -translate-x-1/2 overflow-hidden rounded-md transition-all">
+            <svg
+              className="w-[10dvw] h-[5.5dvh]"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
               <path
-                fill="#e8e9eb"
-                d="M 22,19L 24,19L 24,57L 22,57L 22,19 Z M 26,57L 26,19.0001L 53.9999,19.0001L 53.9999,57L 26,57 Z M 30,24L 30,27L 50,27L 50,24L 30,24 Z M 30,32L 30,35L 33,35L 33,32L 30,32 Z M 36,32L 36,35L 49,35L 49,32L 36,32 Z M 30,40L 30,43L 33,43L 33,40L 30,40 Z M 36,40L 36,43L 48,43L 48,40L 36,40 Z M 30,48L 30,51L 33,51L 33,48L 30,48 Z M 36,48L 36,51L 50,51L 50,48L 36,48 Z "
+                d="M8 8H20M11 12H20M14 16H20M4 8H4.01M7 12H7.01M10 16H10.01"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                stroke="#313638"
               />
             </svg>
           </Drawer.Trigger>
           <Drawer.Portal>
-            <Drawer.Overlay className="z-40 fixed inset-0 bg-black/40" />
             <Drawer.Content className="z-40 bg-gray-100 flex flex-col rounded-t-[10px] mt-24 h-[80%] lg:h-[320px] fixed bottom-0 left-0 right-0 outline-none">
               <div className="p-4 bg-white rounded-t-[10px] flex-1 overflow-y-auto">
                 <div className="mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-gray-300 " />
