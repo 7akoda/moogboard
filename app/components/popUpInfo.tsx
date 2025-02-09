@@ -2,11 +2,11 @@ import { Drawer } from "vaul";
 export const PopUpInfo = () => {
   return (
     <>
-      <div className="flex flex-col justify-self-center justify-items-center z-20">
+      <div className="flex flex-col justify-self-center justify-items-center ">
         <Drawer.Root>
-          <Drawer.Trigger className=" z-40 absolute -bottom-full right-[20%] translate-x-1/2 overflow-hidden rounded-md transition-all">
+          <Drawer.Trigger className=" z-30 fixed bottom-2 right-[20%] translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
-              className="w-[10dvw] h-[5.5dvh]"
+              className="w-[10dvw] h-[45px]"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
