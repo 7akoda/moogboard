@@ -1,6 +1,6 @@
 import { Drawer } from "vaul";
 import { Search } from "./search";
-
+import React, { useEffect } from "react";
 interface Climb {
   id: number;
   name: string;
@@ -10,18 +10,22 @@ interface Climb {
 }
 
 interface popUpProps {
-  animate: boolean;
-
   setClimb: React.Dispatch<React.SetStateAction<Climb | null>>;
   climb: Climb | null;
 }
 
-const PopUpSearch: React.FC<popUpProps> = ({ animate, climb, setClimb }) => {
+const PopUpSearch: React.FC<popUpProps> = ({ climb, setClimb }) => {
+  const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [climb]);
+
   return (
     <>
       <div className="flex flex-col justify-self-center">
-        <Drawer.Root>
-          <Drawer.Trigger className=" z-40 absolute -bottom-full left-[22%] -translate-x-1/2 overflow-hidden rounded-md transition-all">
+        <Drawer.Root open={open} onOpenChange={setOpen}>
+          <Drawer.Trigger className=" z-40 absolute -bottom-full left-[20%] -translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
               className="w-[10dvw] h-[5.5dvh]"
               viewBox="0 0 24 24"
