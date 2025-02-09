@@ -36,7 +36,7 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="h-full">
       <input
         className="flex flex-row w-full mt-3"
         type="text"
@@ -45,15 +45,15 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
         onChange={(e) => setSearchTerm(e.target.value)}
       />
 
-      <table className="flex flex-col pt-6 ">
+      <table className="flex flex-col pt-6 h-[85%]  ">
         <thead>
-          <tr className="flex flex-row justify-between">
+          <tr className="flex flex-row justify-between px-2">
             <th>Name</th>
             <th>Grade</th>
           </tr>
         </thead>
 
-        <tbody>
+        <tbody className="scrollBar ">
           {climbs
             ?.filter((c) =>
               c.name.toLowerCase().includes(searchTerm.toLowerCase())
