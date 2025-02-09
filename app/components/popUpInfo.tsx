@@ -4,7 +4,7 @@ export const PopUpInfo = () => {
     <>
       <div className="flex flex-col justify-self-center justify-items-center z-20">
         <Drawer.Root>
-          <Drawer.Trigger className=" z-40 absolute -bottom-full right-[22%] translate-x-1/2 overflow-hidden rounded-md transition-all">
+          <Drawer.Trigger className=" z-40 absolute -bottom-full right-[20%] translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
               className="w-[10dvw] h-[5.5dvh]"
               viewBox="0 0 24 24"
@@ -40,6 +40,10 @@ export const PopUpInfo = () => {
                       here
                     </a>
                     .
+                  </p>
+                  <p className="text-gray-600 text-xs">
+                    Although there are many benchmarked climbs in the database
+                    feel free to create your own!.
                   </p>
                 </div>
               </div>
