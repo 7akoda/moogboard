@@ -9,7 +9,7 @@ const Row: React.FC<rowProps> = ({ children, viewBox }) => {
     <>
       <svg
         className={
-          isMobile ? " max-w-[80dvw] max-h-[5dvh]" : " w-[45dvw] max-h-[5dvh]"
+          isMobile ? " max-w-[80dvw] max-h-[4.5dvh]" : " w-[45dvw] max-h-[5dvh]"
         }
         viewBox={viewBox}
       >
