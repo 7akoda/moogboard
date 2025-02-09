@@ -25,11 +25,11 @@ const PopUpPlay: React.FC<popUpProps> = ({
 
   return (
     <>
-      <div className="flex flex-col justify-self-center justify-items-center z-20">
+      <div className="flex flex-col justify-self-center justify-items-center ">
         <Drawer.Root open={open} onOpenChange={setOpen}>
-          <Drawer.Trigger className="absolute -bottom-full left-[1/2] -translate-x-1/2 overflow-hidden rounded-md transition-all">
+          <Drawer.Trigger className="fixed z-30 bottom-[10px] left-[1/2] -translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
-              className="w-[16dvw] h-[11dvh]"
+              className="w-[16dvw] h-[80px]"
               viewBox="0 0 24 24"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
