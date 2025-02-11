@@ -31,9 +31,9 @@ export const BottomBar: React.FC<bottomBarProps> = ({
   return (
     <>
       <svg
-        className="fixed bottom-[14px] w-full z-20 opacity-50"
+        className="fixed bottom-[-7px] w-full z-20 opacity-50"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="9.083 15.229 3.834 0.48"
+        viewBox="9 15.2 4 0.7"
       >
         <path
           d="
@@ -53,9 +53,9 @@ H 9
         />
       </svg>
       <svg
-        className="fixed bottom-[10px] w-full z-20"
+        className="fixed bottom-[-11px] w-full z-20"
         xmlns="http://www.w3.org/2000/svg"
-        viewBox="9.083 15.229 3.834 0.48"
+        viewBox="9 15.2 4 0.7"
       >
         <path
           d="
