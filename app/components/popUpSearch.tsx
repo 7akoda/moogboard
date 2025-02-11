@@ -23,7 +23,7 @@ const PopUpSearch: React.FC<popUpProps> = ({ climb, setClimb }) => {
 
   return (
     <>
-      <div className="flex flex-col justify-self-center">
+      <div className="flex flex-col justify-self-center justify-items-center">
         <Drawer.Root open={open} onOpenChange={setOpen}>
           <Drawer.Trigger className=" z-30 fixed bottom-2 left-[20%] -translate-x-1/2 overflow-hidden rounded-md transition-all">
             <svg
