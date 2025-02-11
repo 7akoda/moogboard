@@ -14,7 +14,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY < 12) {
-        setScrollClass("bg-[#f5f5f5]");
+        setScrollClass("bg-[#84acac]");
       } else {
         setScrollClass("bg-[#20616a]");
       }
