@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { BpmControl } from "./bpm";
 import { Search } from "./search";
 
@@ -29,8 +29,8 @@ export const SideBar: React.FC<popOutProps> = ({
 }) => {
   return (
     <>
-      <div className="right-2 top-2 bottom-2 fixed z-10 outline-none w-[310px] flex">
-        <div className="bg-zinc-50 p-5 h-full w-full grow flex flex-col rounded-[16px]">
+      <div className="right-2 top-2 bottom-2 fixed z-10 outline-none max-w-[310px] flex ">
+        <div className="bg-zinc-50 p-5 h-full w-full flex flex-col rounded-[16px]">
           <div className="max-w-[300px] overflow-hidden z-10">
             <p className="  justify-self-start font-medium mb-12 text-gray-900">
               MoogBoard by 7akoda
