@@ -53,7 +53,7 @@ export const Search: React.FC<searchProps> = ({ climb, setClimb }) => {
           </tr>
         </thead>
 
-        <tbody className="scrollBar ">
+        <tbody className="scrollBar">
           {climbs
             ?.filter((c) =>
               c.name.toLowerCase().includes(searchTerm.toLowerCase())
