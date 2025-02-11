@@ -1,7 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import Board from "../components/Board/board";
 import Mooglogo from "../components/Logos/moogboardlogo";
-import MooglogoSmall from "../components/Logos/moogboardlogoSmall";
 import { useState, useEffect } from "react";
 import { Line } from "../components/line";
 import { SideBar } from "~/components/sideBar";
@@ -40,18 +39,16 @@ export default function Index() {
   }, []);
 
   if (!isClient) {
-    return null; //
+    return null;
   }
 
   const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   return (
     <>
-      <div className="flex flex-col items-center ">
-        <div className="flex flex-col w-full h-[100dvh] justify-center items-center">
-          <Mooglogo></Mooglogo>
-        </div>
-        <div className="flex flex-col justify-center items-center w-full h-[100dvh] overflow-hidden">
+      <div className="flex flex-col items-center justify-center ">
+        <Mooglogo></Mooglogo>
+        <div className={isMobile ? "slide-in-mobile" : "slide-in"}>
           <Board climb={climb}></Board>
           <Line bpm={bpm} animate={animate}></Line>
           {isMobile ? (
@@ -73,7 +70,7 @@ export default function Index() {
               handleClick={handleClick}
             />
           )}
-          <MooglogoSmall />
+          {/* <MooglogoSmall /> */}
         </div>
       </div>
     </>
