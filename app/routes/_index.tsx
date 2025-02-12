@@ -26,6 +26,7 @@ export default function Index() {
   const [bpm, setBpm] = useState(7);
   const [isClient, setIsClient] = useState(false);
   const [climb, setClimb] = useState<Climb | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
   const handleClick = () => {
     setTimeout(() => setAnimate(true), 0);
     setTimeout(
@@ -36,13 +37,21 @@ export default function Index() {
 
   useEffect(() => {
     setIsClient(true);
+
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    const handleMediaChange = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
+    };
+
+    setIsMobile(mediaQuery.matches);
+
+    mediaQuery.addEventListener("change", handleMediaChange);
+    return () => mediaQuery.removeEventListener("change", handleMediaChange);
   }, []);
 
   if (!isClient) {
     return null;
   }
-
-  const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
   return (
     <>
