@@ -30,7 +30,7 @@ const PopUpPlay: React.FC<popUpProps> = ({
           <Drawer.Trigger className="fixed bottom-[25px] z-30 left-[1/2] -translate-x-1/2 rounded-md transition-all">
             <>
               <svg
-                className="w-[49px] h-[49px] bottom-[-3px]  z-30 absolute"
+                className="w-[49px] h-[49px] bottom-[-3px] z-30 absolute"
                 viewBox="2.35 2.35 19.3 19.3"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
