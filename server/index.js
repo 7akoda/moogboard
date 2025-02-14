@@ -3091,13 +3091,13 @@ const route1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProper
   default: Index,
   meta
 }, Symbol.toStringTag, { value: "Module" }));
-const serverManifest = { "entry": { "module": "/moogboard/assets/entry.client-nUId_s53.js", "imports": ["/moogboard/assets/index-29b1rwwI.js", "/moogboard/assets/components-BDaS1QSz.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/moogboard/assets/root-D1TVyo-Y.js", "imports": ["/moogboard/assets/index-29b1rwwI.js", "/moogboard/assets/components-BDaS1QSz.js"], "css": ["/moogboard/assets/root-BxBDpnvR.css"] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/moogboard/assets/_index-DHzBNAUi.js", "imports": ["/moogboard/assets/index-29b1rwwI.js"], "css": [] } }, "url": "/moogboard/assets/manifest-b89703fd.js", "version": "b89703fd" };
+const serverManifest = { "entry": { "module": "/moogboardassets/entry.client-nUId_s53.js", "imports": ["/moogboardassets/index-29b1rwwI.js", "/moogboardassets/components-BDaS1QSz.js"], "css": [] }, "routes": { "root": { "id": "root", "parentId": void 0, "path": "", "index": void 0, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/moogboardassets/root-D1TVyo-Y.js", "imports": ["/moogboardassets/index-29b1rwwI.js", "/moogboardassets/components-BDaS1QSz.js"], "css": ["/moogboardassets/root-BxBDpnvR.css"] }, "routes/_index": { "id": "routes/_index", "parentId": "root", "path": void 0, "index": true, "caseSensitive": void 0, "hasAction": false, "hasLoader": false, "hasClientAction": false, "hasClientLoader": false, "hasErrorBoundary": false, "module": "/moogboardassets/_index-DHzBNAUi.js", "imports": ["/moogboardassets/index-29b1rwwI.js"], "css": [] } }, "url": "/moogboardassets/manifest-d3f3e82c.js", "version": "d3f3e82c" };
 const mode = "production";
 const assetsBuildDirectory = "build\\client";
 const basename = "/";
 const future = { "v3_fetcherPersist": true, "v3_relativeSplatPath": true, "v3_throwAbortReason": true, "v3_routeConfig": false, "v3_singleFetch": false, "v3_lazyRouteDiscovery": false, "unstable_optimizeDeps": false };
 const isSpaMode = false;
-const publicPath = "/moogboard/";
+const publicPath = "/moogboard";
 const entry = { module: entryServer };
 const routes = {
   "root": {
