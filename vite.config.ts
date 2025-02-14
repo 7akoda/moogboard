@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
-  base: "/moogboard",
+  base: "/moogboard/",
   plugins: [
     remix({
       future: {
