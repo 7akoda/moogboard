@@ -6,6 +6,7 @@ export default defineConfig({
   base: "/moogboard/",
   plugins: [
     remix({
+      basename: "/moogboard/",
       ssr: false,
       future: {
         v3_fetcherPersist: true,
