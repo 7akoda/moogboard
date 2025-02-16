@@ -4,4 +4,4 @@ A React-based interactive project that bridges the world of music and climbing. 
 
 With 18 chords and 4 instruments, some climbs may create more harmonious compositions than others.
 
-Play around with it [\[here\]](https://7akoda.github.io/moogboard/)
+Play around with it [here](https://7akoda.github.io/moogboard/)
