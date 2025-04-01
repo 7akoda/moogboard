@@ -29,7 +29,7 @@
   "dependencies": {
     "@remix-run/node": "^2.12.1",
     "@remix-run/react": "^2.12.1",
-    "@remix-run/serve": "^2.15.3",
+    "@remix-run/serve": "^2.16.4",
     "@supabase/supabase-js": "^2.48.1",
     "dotenv": "^16.4.7",
     "isbot": "^4.4.0",
